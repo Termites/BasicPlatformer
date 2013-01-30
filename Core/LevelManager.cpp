@@ -48,8 +48,6 @@ LevelManager::~LevelManager()
 
 char LevelManager::GetBlockAt(const vec2i& Location)
 {
-    std::cout<<"l\n";
-    std::cout<<Size.x<<','<<Size.y<<std::endl;
 	// Au cas où on cherche à accéder à un bloc inexistant :
 	if (Location.x < 0 || Location.y <0 || Location.x>=Size.x || Location.y>=Size.y)
 		return -1;

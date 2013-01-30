@@ -6,6 +6,7 @@
 #include "Core/Entity/Player.hpp"
 
 #include "Core/Resources/GamePath.hpp"
+#include "Core/Resources/ResourceManager.hpp"
 
 /*
 	Pour linker la SFML :
@@ -17,6 +18,7 @@
 
 		-lsfml-graphics-s
 		-lsfml-window-s
+		-lsfml-audio-s
 		-lsfml-system-s
 */
 
@@ -81,6 +83,12 @@ int main(int arg_c,char*argv[])
 	InitializeGL(800,600);
 
 	LevelManager L;
+	ResourceManager R;
+	sf::SoundBuffer B = R.LoadSound("MarioJump");
+
+    sf::Sound S;
+    S.SetBuffer(B);
+    S.Play();
 
     L.LoadLevel("Level");
 	L.LoadTileset("Tileset");
