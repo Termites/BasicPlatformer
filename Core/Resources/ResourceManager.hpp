@@ -18,7 +18,7 @@ inline char Lower(char C)
 class ResourceManager
 {
 	private:
-		std::list<Resource<sf::SoundBuffer>> SoundList;
+		std::list<Resource<sf::SoundBuffer> > SoundList;
 	public:
 		sf::SoundBuffer & LoadSound(const std::string & S);
 
