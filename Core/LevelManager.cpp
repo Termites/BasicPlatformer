@@ -3,6 +3,7 @@
 #include<GL/GL.h>
 #include<fstream>
 #include<iostream>
+#include "Resources/GamePath.hpp"
 
 GLuint ConvertToGLTexture(const sf::Image & Image)
 {
@@ -69,7 +70,7 @@ void LevelManager::LoadTileset(const std::string& File)
 {
 	sf::Image I;
 	// bool sf::Image::LoadFromFile(const std::string&,char*Format=NULL)
-	if (!I.LoadFromFile(File))
+	if (!I.LoadFromFile(GamePath::Tileset + File + ".png"))
 	{
 		// Fail
 		return;
@@ -84,7 +85,8 @@ void LevelManager::LoadTileset(const std::string& File)
 
 void LevelManager::LoadLevel(const std::string&File)
 {
-	std::ifstream Input(File.c_str());
+    std::string full = GamePath::Level + File + ".lev";
+	std::ifstream Input(full.c_str());
 	if (!Input.is_open())
 	{
 		// fail..

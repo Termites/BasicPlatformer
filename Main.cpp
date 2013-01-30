@@ -82,8 +82,8 @@ int main(int arg_c,char*argv[])
 
 	LevelManager L;
 
-    L.LoadLevel("Level.txt");
-	L.LoadTileset("Tileset.png");
+    L.LoadLevel("Level");
+	L.LoadTileset("Tileset");
 
 	L.RegisterObject(new Player(vec2f(0,0)));
 

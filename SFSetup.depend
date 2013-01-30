@@ -47,7 +47,7 @@
 1359483941 d:\development\shared\sfsetup\core\entity\player.hpp
 	"EntityBase.hpp"
 
-1359569333 source:d:\development\githubshared\basicplatformer\main.cpp
+1359569344 source:d:\development\githubshared\basicplatformer\main.cpp
 	<SFML/Window.hpp>
 	<GL/GL.h>
 	"Core/Math.hpp"
@@ -77,12 +77,13 @@
 	"../Object.hpp"
 	"../Math.hpp"
 
-1359482022 source:d:\development\githubshared\basicplatformer\core\levelmanager.cpp
+1359569646 source:d:\development\githubshared\basicplatformer\core\levelmanager.cpp
 	"LevelManager.hpp"
 	<SFML/Graphics.hpp>
 	<GL/GL.h>
 	<fstream>
 	<iostream>
+	"Resources/GamePath.hpp"
 
 1359554422 source:d:\development\githubshared\basicplatformer\core\entity\player.cpp
 	<SFML/Window.hpp>
