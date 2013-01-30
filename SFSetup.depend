@@ -1,12 +1,12 @@
 # depslib dependency file v1.0
-1359484580 source:d:\development\shared\sfsetup\main.cpp
+1359554465 source:d:\development\shared\sfsetup\main.cpp
 	<SFML/Window.hpp>
 	<GL/GL.h>
 	"Core/Math.hpp"
 	"Core/LevelManager.hpp"
 	"Core/Entity/Player.hpp"
 
-1359481248 d:\development\shared\sfsetup\core\math.hpp
+1359554250 d:\development\shared\sfsetup\core\math.hpp
 	<cmath>
 
 1359482005 d:\development\shared\sfsetup\core\levelmanager.hpp
@@ -31,16 +31,16 @@
 
 1359479917 d:\development\shared\sfsetup\core\object.hpp
 
-1359484712 source:d:\development\shared\sfsetup\core\entity\entitybase.cpp
+1359554437 source:d:\development\shared\sfsetup\core\entity\entitybase.cpp
 	"EntityBase.hpp"
 	"../LevelManager.hpp"
 	<GL/GL.h>
 
-1359481295 d:\development\shared\sfsetup\core\entity\entitybase.hpp
+1359553848 d:\development\shared\sfsetup\core\entity\entitybase.hpp
 	"../Object.hpp"
 	"../Math.hpp"
 
-1359484630 source:d:\development\shared\sfsetup\core\entity\player.cpp
+1359554422 source:d:\development\shared\sfsetup\core\entity\player.cpp
 	<SFML/Window.hpp>
 	"Player.hpp"
 

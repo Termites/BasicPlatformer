@@ -145,3 +145,20 @@ int sign(const T&value)
 {
 	return value<0 ? -1 : 1;
 }
+inline int GetSnappedValue(int x)
+{
+    int r = x;
+    int m = x%16;
+    if (m>=8)
+        r+=16-m;
+    else
+        r-=m;
+
+    return r;
+}
+
+inline vec2i SnapToGrid(const vec2i&V)
+{
+    return vec2i(GetSnappedValue(V.x),GetSnappedValue(V.y));
+
+}

@@ -13,8 +13,9 @@ void Player::Tick()
     else
         Velocity.x = 0;
 
-    if (GlobalInput->IsKeyDown(sf::Key::Space) && Velocity.y == 0.f)
+    if (GlobalInput->IsKeyDown(sf::Key::Space) && Physic == PHYS_Landed)
     {
+        Physic = PHYS_Jumping;
     	Velocity.y = -12;
     }
 

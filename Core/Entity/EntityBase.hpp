@@ -2,6 +2,13 @@
 #include "../Object.hpp"
 #include "../Math.hpp"
 
+enum PhysicState
+{
+    PHYS_Landed,
+    PHYS_Jumping,
+    PHYS_Falling
+};
+
 class EntityBase : public Object
 {
 	protected :
@@ -16,6 +23,8 @@ class EntityBase : public Object
 		float Gravity; // Force de la gravité
 
 		int Layer; // Calque de l'objet
+
+		PhysicState Physic;
 
 
 
