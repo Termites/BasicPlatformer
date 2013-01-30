@@ -1,0 +1,50 @@
+# depslib dependency file v1.0
+1359509753 source:c:\users\jux\desktop\fario\levelmanager\levelmanager.cpp
+	"LevelManager.hpp"
+	<SFML/Graphics.hpp>
+	<GL/GL.h>
+	<fstream>
+
+1359507533 c:\users\jux\desktop\fario\levelmanager\levelmanager.hpp
+	<GL/GL.h>
+	<string>
+	"../Math/Math.hpp"
+	"../ObjectManager/ObjectManager.hpp"
+
+1359507533 c:\users\jux\desktop\fario\math\math.hpp
+	<cmath>
+
+1359507533 c:\users\jux\desktop\fario\objectmanager\objectmanager.hpp
+	<list>
+	"../Object/Object.hpp"
+
+1359507533 c:\users\jux\desktop\fario\object\object.hpp
+	"../Math/Math.hpp"
+
+1359509642 source:c:\users\jux\desktop\fario\main.cpp
+	<iostream>
+	<SFML/Window.hpp>
+	<GL/GL.h>
+	"Math/Math.hpp"
+	"LevelManager/LevelManager.hpp"
+	"Object/Object.hpp"
+	"Object/Entity/Player/Player.hpp"
+
+1359507533 c:\users\jux\desktop\fario\object\entity\player\player.hpp
+	"../Entity.hpp"
+
+1359508991 c:\users\jux\desktop\fario\object\entity\entity.hpp
+	"../Object.hpp"
+
+1359509210 source:c:\users\jux\desktop\fario\object\entity\entity.cpp
+	<GL/GL.h>
+	"../../LevelManager/LevelManager.hpp"
+	"Entity.hpp"
+
+1359509216 source:c:\users\jux\desktop\fario\object\entity\player\player.cpp
+	<SFML/Window.hpp>
+	"Player.hpp"
+
+1359508501 source:c:\users\jux\desktop\fario\objectmanager\objectmanager.cpp
+	"ObjectManager.hpp"
+
