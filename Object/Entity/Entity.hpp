@@ -1,6 +1,12 @@
 #pragma once
 #include "../Object.hpp"
 
+enum PhysicState{
+    PHYS_Landed,
+    PHYS_Jumping,
+    PHYS_Falling
+};
+
 class Entity : public Object
 {
     private:
@@ -22,4 +28,5 @@ class Entity : public Object
         float Gravity;
         float MaxSpeed;
         int Layer;
+        PhysicState Physic;
 };

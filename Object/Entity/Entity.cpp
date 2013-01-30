@@ -6,13 +6,15 @@ Entity::Entity(){
 	Gravity=0.7;
 	Layer=0;
 	MaxSpeed=8;
+	Physic=PHYS_Falling;
 }
 
 Entity::Entity(const vec2f &Location){
 	this->Location=Location;
 	Gravity=0.7;
 	Layer=0;
-	MaxSpeed = 8;
+	MaxSpeed=8;
+	Physic=PHYS_Falling;
 }
 
 void Entity::Create(){}
@@ -21,31 +23,44 @@ Entity NextLocation;
 
 void Entity::Tick(){
 	Velocity+=Acceleration;
-	Velocity.y+=Gravity;
+	if(Physic!=PHYS_Landed) Velocity.y+=Gravity;
 	if(fabs(Velocity.x)>MaxSpeed) Velocity.x=sign(Velocity.x)*MaxSpeed;
     if(fabs(Velocity.y)>MaxSpeed) Velocity.y=sign(Velocity.y)*MaxSpeed;
-    NextLocation.GridLocation=GridLocation;
-    NextLocation.GridLocation.x+=floor(Velocity.x/16+0.5);
-    NextLocation.GridLocation.y+=floor(Velocity.y/16+0.5);
+    int SignX(0);
+    if(Velocity.x!=0) sign(Velocity.x);
+    GridLocation=SnapToGrid(Location)/16;
+    if (Physic!=PHYS_Landed){
+        if (Velocity.y>0 && Level->GetBlockAt(GridLocation+vec2i(0,1))>0 && Location.y+Velocity.y>=GridLocation.y*16){
+            Velocity.y=0;
+            Physic=PHYS_Landed;
+            Location.y=GridLocation.y*16;
+        }
+    }
+    if (Physic==PHYS_Landed){
+        if (Level->GetBlockAt(GridLocation+vec2i(0,1))<=0) Physic=PHYS_Falling;
+    }
+    if (Physic==PHYS_Jumping){
+        if(Velocity.y>0){
+            Physic=PHYS_Falling;
+            if(Level->GetBlockAt(GridLocation+vec2i(SignX,1))>0) Velocity.y=0;
+        }
+        else
+        {
+            if(Level->GetBlockAt(GridLocation+vec2i(SignX,-1))>0){
+                Velocity.y=0;
+                Physic=PHYS_Falling;
+            }
+        }
+    }
     if(Velocity.x!=0){
-		int Sign=sign(Velocity.x);
-		int Block=Level->GetBlockAt(NextLocation.GridLocation+vec2i(Sign,0));
-		if(Block>0){
+        int Sign=sign(Velocity.x);
+        int Block=Level->GetBlockAt(GridLocation+vec2i(Sign,0));
+		if(Block>0 || Block==-1){
 			Velocity.x=0;
 			Location.x=(GridLocation.x)*16;
 		}
 	}
-	if(Velocity.y!=0){
-		int Sign=sign(Velocity.y);
-		int Block=Level->GetBlockAt(NextLocation.GridLocation+vec2i(0,Sign));
-		if(Block>0){
-			Velocity.y=0;
-			Location.y=(GridLocation.y)*16;
-		}
-	}
 	Location+=Velocity;
-	GridLocation.x=floor(Location.x/16+0.5);
-	GridLocation.y=floor(Location.y/16+0.5);
 }
 
 void Entity::Draw(){

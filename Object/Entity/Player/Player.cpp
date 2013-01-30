@@ -13,12 +13,9 @@ void Player::Tick(){
         else if(GlobalInput->IsKeyDown(sf::Key::Right)) Velocity.x = 4;
     }
     else Velocity.x=0;
-    if(GlobalInput->IsKeyDown(sf::Key::Space) && Velocity.y == 0 && !Jumping){
+    if(GlobalInput->IsKeyDown(sf::Key::Space) && Physic==PHYS_Landed){
     	Velocity.y = -8;
-        Jumping=true;
-    }
-    else{
-        Jumping=false;
+        Physic=PHYS_Jumping;
     }
     Entity::Tick();
 }

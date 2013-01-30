@@ -32,6 +32,9 @@ struct Vector2D{
 	}
 };
 
+typedef Vector2D<float> vec2f;
+typedef Vector2D<int> vec2i;
+
 template<typename T>
 Vector2D<T> operator + (const Vector2D<T> &A, const Vector2D<T> &B){
 	return Vector2D<T>(A.x+B.x,A.y+B.y);
@@ -114,5 +117,14 @@ int sign(const T &value){
 	return value<0?-1:1;
 }
 
-typedef Vector2D<float> vec2f;
-typedef Vector2D<int> vec2i;
+inline int GetSnappedValue(int x){
+    int r=x;
+    int m=x%16;
+    if(m>=8) r+=16-m;
+    else r-=m;
+    return r;
+}
+
+inline vec2i SnapToGrid(const vec2i &V){
+    return vec2i(GetSnappedValue(V.x),GetSnappedValue(V.y));
+}
