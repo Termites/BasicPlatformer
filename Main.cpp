@@ -5,6 +5,8 @@
 #include "Core/LevelManager.hpp"
 #include "Core/Entity/Player.hpp"
 
+#include "Core/Resources/GamePath.hpp"
+
 /*
 	Pour linker la SFML :
 
@@ -70,6 +72,9 @@ int main(int arg_c,char*argv[])
 	sf::Window App(sf::VideoMode(800,600,32),"FARIO");
 	// On tourne à 60FPS
 	App.SetFramerateLimit(60);
+
+	GamePath::Root = "D:\\Development\\GithubShared\\BasicPlatformer\\Public\\";
+	GamePath::GeneratePath();
 
 	GlobalInput = &App.GetInput();
 

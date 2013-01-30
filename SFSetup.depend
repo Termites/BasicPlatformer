@@ -47,3 +47,58 @@
 1359483941 d:\development\shared\sfsetup\core\entity\player.hpp
 	"EntityBase.hpp"
 
+1359569333 source:d:\development\githubshared\basicplatformer\main.cpp
+	<SFML/Window.hpp>
+	<GL/GL.h>
+	"Core/Math.hpp"
+	"Core/LevelManager.hpp"
+	"Core/Entity/Player.hpp"
+	"Core/Resources/GamePath.hpp"
+
+1359554250 d:\development\githubshared\basicplatformer\core\math.hpp
+	<cmath>
+
+1359482005 d:\development\githubshared\basicplatformer\core\levelmanager.hpp
+	"Math.hpp"
+	<GL/GL.h>
+	<string>
+	"ObjectManager.hpp"
+
+1359479727 d:\development\githubshared\basicplatformer\core\objectmanager.hpp
+	"Object.hpp"
+	<list>
+
+1359479917 d:\development\githubshared\basicplatformer\core\object.hpp
+
+1359483941 d:\development\githubshared\basicplatformer\core\entity\player.hpp
+	"EntityBase.hpp"
+
+1359553848 d:\development\githubshared\basicplatformer\core\entity\entitybase.hpp
+	"../Object.hpp"
+	"../Math.hpp"
+
+1359482022 source:d:\development\githubshared\basicplatformer\core\levelmanager.cpp
+	"LevelManager.hpp"
+	<SFML/Graphics.hpp>
+	<GL/GL.h>
+	<fstream>
+	<iostream>
+
+1359554422 source:d:\development\githubshared\basicplatformer\core\entity\player.cpp
+	<SFML/Window.hpp>
+	"Player.hpp"
+
+1359479839 source:d:\development\githubshared\basicplatformer\core\objectmanager.cpp
+	"ObjectManager.hpp"
+
+1359569262 source:d:\development\githubshared\basicplatformer\core\resources\gamepath.cpp
+	"GamePath.hpp"
+
+1359569214 d:\development\githubshared\basicplatformer\core\resources\gamepath.hpp
+	<string>
+
+1359554483 source:d:\development\githubshared\basicplatformer\core\entity\entitybase.cpp
+	"EntityBase.hpp"
+	"../LevelManager.hpp"
+	<GL/GL.h>
+
