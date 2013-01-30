@@ -29,8 +29,27 @@
 			</Target>
 		</Build>
 		<Compiler>
+			<Add option="-std=c++0x" />
 			<Add option="-Wall" />
 		</Compiler>
+		<Linker>
+			<Add option="-lsfml-graphics-s" />
+			<Add option="-lsfml-window-s" />
+			<Add option="-lsfml-system-s" />
+		</Linker>
+		<Unit filename="LevelManager/LevelManager.cpp" />
+		<Unit filename="LevelManager/LevelManager.hpp" />
+		<Unit filename="Main.cpp" />
+		<Unit filename="Math/Math.hpp" />
+		<Unit filename="ObjectManager/ObjectManager.cpp" />
+		<Unit filename="ObjectManager/ObjectManager.hpp" />
+		<Unit filename="Object/Entity/Entity.cpp" />
+		<Unit filename="Object/Entity/Entity.hpp" />
+		<Unit filename="Object/Entity/Player/Fario/Fario.hpp" />
+		<Unit filename="Object/Entity/Player/Player.cpp" />
+		<Unit filename="Object/Entity/Player/Player.hpp" />
+		<Unit filename="Object/Entity/Player/Ruigi/Ruigi.hpp" />
+		<Unit filename="Object/Object.hpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
