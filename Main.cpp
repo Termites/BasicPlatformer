@@ -4,11 +4,12 @@
 #include "Math/Math.hpp"
 #include "LevelManager/LevelManager.hpp"
 #include "Object/Object.hpp"
-#include "Object/Entity/Player/Player.hpp"
+#include "Object/Entity/Player/Fario/Fario.hpp"
 #include "ResourceManager/GamePath.hpp"
 #include "ResourceManager/ResourceManager.hpp"
 
 const sf::Input *GlobalInput;
+ResourceManager R;
 
 void InitializeGL(int W,int H){
 	glViewport(0,0,W,H);
@@ -26,8 +27,7 @@ int main(int arg_c,char*argv[]){
 	App.SetFramerateLimit(60);
 	InitializeGL(800,600);
 	LevelManager L;
-	ResourceManager R;
-    GamePath::Root="C:\\Users\\JUX\\Desktop\\BasicPlatformer\\";
+    GamePath::Root="C:\\Users\\Vedia\\Documents\\GitHub\\BasicPlatformer"; // GamePath::Root="C:\\Users\\JUX\\Desktop\\BasicPlatformer\\";
     GamePath::GeneratePath();
     sf::SoundBuffer &B=R.LoadSound("MarioJump");
 	sf::Sound S;
@@ -35,7 +35,7 @@ int main(int arg_c,char*argv[]){
 	S.Play();
     L.LoadLevel("1");
 	L.LoadTileset("1");
-	L.RegisterObject(new Player(vec2f(0,16*11)));
+	L.RegisterObject(new Fario(vec2f(16*1,16*11)));
 	L.Create();
 	while(App.IsOpened()){
 		sf::Event e;
@@ -44,11 +44,12 @@ int main(int arg_c,char*argv[]){
 		}
 		L.Tick();
 		glClear(GL_DEPTH_BUFFER_BIT|GL_COLOR_BUFFER_BIT);
-		glEnable(GL_TEXTURE_2D);
         glEnable(GL_ALPHA_TEST);
+        glEnable(GL_DEPTH_TEST);
 		glAlphaFunc(GL_GREATER,0.5);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
 		L.Draw();
-		glDisable(GL_TEXTURE_2D);
 		glDisable(GL_ALPHA_TEST);
 		App.Display();
 	}

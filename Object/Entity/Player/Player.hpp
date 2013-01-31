@@ -7,7 +7,8 @@ class Player : public Entity{
 	public:
 	    Player(const vec2f &L);
 		virtual void Tick();
+		virtual void Draw();
 
 	protected:
-	    bool Jumping;
+        int MaxHeight;
 };

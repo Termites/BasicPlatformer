@@ -69,3 +69,85 @@
 	"ResourceManager.hpp"
 	"GamePath.hpp"
 
+1359654074 source:c:\users\vedia\documents\github\basicplatformer\main.cpp
+	<iostream>
+	<SFML/Window.hpp>
+	<GL/GL.h>
+	"Math/Math.hpp"
+	"LevelManager/LevelManager.hpp"
+	"Object/Object.hpp"
+	"Object/Entity/Player/Fario/Fario.hpp"
+	"ResourceManager/GamePath.hpp"
+	"ResourceManager/ResourceManager.hpp"
+
+1359627973 c:\users\vedia\documents\github\basicplatformer\math\math.hpp
+	<cmath>
+
+1359629838 c:\users\vedia\documents\github\basicplatformer\levelmanager\levelmanager.hpp
+	<GL/GL.h>
+	<string>
+	"../Math/Math.hpp"
+	"../ObjectManager/ObjectManager.hpp"
+
+1359627973 c:\users\vedia\documents\github\basicplatformer\objectmanager\objectmanager.hpp
+	<list>
+	"../Object/Object.hpp"
+
+1359627973 c:\users\vedia\documents\github\basicplatformer\object\object.hpp
+	"../Math/Math.hpp"
+
+1359654354 c:\users\vedia\documents\github\basicplatformer\object\entity\player\player.hpp
+	"../Entity.hpp"
+
+1359654397 c:\users\vedia\documents\github\basicplatformer\object\entity\entity.hpp
+	"../Object.hpp"
+	"../../ResourceManager/ResourceManager.hpp"
+
+1359627973 c:\users\vedia\documents\github\basicplatformer\resourcemanager\gamepath.hpp
+	<string>
+
+1359651310 c:\users\vedia\documents\github\basicplatformer\resourcemanager\resourcemanager.hpp
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<GL/GL.h>
+	<algorithm>
+	<string>
+	<list>
+	<map>
+	"../Math/Math.hpp"
+
+1359627973 source:c:\users\vedia\documents\github\basicplatformer\objectmanager\objectmanager.cpp
+	"ObjectManager.hpp"
+
+1359653788 source:c:\users\vedia\documents\github\basicplatformer\object\entity\entity.cpp
+	<GL/GL.h>
+	"../../LevelManager/LevelManager.hpp"
+	"Entity.hpp"
+
+1359656806 source:c:\users\vedia\documents\github\basicplatformer\object\entity\player\player.cpp
+	<SFML/Window.hpp>
+	"Player.hpp"
+	"../../../LevelManager/LevelManager.hpp"
+	"../../../ResourceManager/ResourceManager.hpp"
+
+1359627973 source:c:\users\vedia\documents\github\basicplatformer\resourcemanager\gamepath.cpp
+	"GamePath.hpp"
+
+1359657149 source:c:\users\vedia\documents\github\basicplatformer\resourcemanager\resourcemanager.cpp
+	<iostream>
+	<algorithm>
+	<fstream>
+	"ResourceManager.hpp"
+	"GamePath.hpp"
+
+1359653604 source:c:\users\vedia\documents\github\basicplatformer\levelmanager\levelmanager.cpp
+	<SFML/Graphics.hpp>
+	<GL/GL.h>
+	<fstream>
+	"LevelManager.hpp"
+	"../ResourceManager/GamePath.hpp"
+	"../ResourceManager/ResourceManager.hpp"
+
+1359654173 c:\users\vedia\documents\github\basicplatformer\object\entity\player\fario\fario.hpp
+	"../Player.hpp"
+

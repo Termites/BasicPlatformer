@@ -27,6 +27,7 @@ class LevelManager{
 		void LoadLevel(const std::string &File);
 		void RegisterObject(Object *O);
 		void DeleteObject(Object *O);
+		int GetSizeX();
 
     protected:
 };
