@@ -29,4 +29,5 @@ class Entity : public Object
         float MaxSpeed;
         int Layer;
         PhysicState Physic;
+        int Height;
 };

@@ -13,6 +13,7 @@ class LevelManager{
 		int TilesetWidth;
 		int TilesetHeight;
 		ObjectManager ObjectController;
+		float R,G,B;
 
 	public:
 		LevelManager();

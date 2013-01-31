@@ -1,11 +1,12 @@
 # depslib dependency file v1.0
-1359509753 source:c:\users\jux\desktop\basicplatformer\levelmanager\levelmanager.cpp
-	"LevelManager.hpp"
+1359586044 source:c:\users\jux\desktop\basicplatformer\levelmanager\levelmanager.cpp
 	<SFML/Graphics.hpp>
 	<GL/GL.h>
 	<fstream>
+	"LevelManager.hpp"
+	"../ResourceManager/GamePath.hpp"
 
-1359507533 c:\users\jux\desktop\basicplatformer\levelmanager\levelmanager.hpp
+1359586058 c:\users\jux\desktop\basicplatformer\levelmanager\levelmanager.hpp
 	<GL/GL.h>
 	<string>
 	"../Math/Math.hpp"
@@ -14,14 +15,14 @@
 1359555459 c:\users\jux\desktop\basicplatformer\math\math.hpp
 	<cmath>
 
-1359507533 c:\users\jux\desktop\basicplatformer\objectmanager\objectmanager.hpp
+1359563144 c:\users\jux\desktop\basicplatformer\objectmanager\objectmanager.hpp
 	<list>
 	"../Object/Object.hpp"
 
 1359507533 c:\users\jux\desktop\basicplatformer\object\object.hpp
 	"../Math/Math.hpp"
 
-1359509642 source:c:\users\jux\desktop\basicplatformer\main.cpp
+1359585973 source:c:\users\jux\desktop\basicplatformer\main.cpp
 	<iostream>
 	<SFML/Window.hpp>
 	<GL/GL.h>
@@ -29,22 +30,42 @@
 	"LevelManager/LevelManager.hpp"
 	"Object/Object.hpp"
 	"Object/Entity/Player/Player.hpp"
+	"ResourceManager/GamePath.hpp"
+	"ResourceManager/ResourceManager.hpp"
 
 1359507533 c:\users\jux\desktop\basicplatformer\object\entity\player\player.hpp
 	"../Entity.hpp"
 
-1359555206 c:\users\jux\desktop\basicplatformer\object\entity\entity.hpp
+1359591026 c:\users\jux\desktop\basicplatformer\object\entity\entity.hpp
 	"../Object.hpp"
 
-1359555257 source:c:\users\jux\desktop\basicplatformer\object\entity\player\player.cpp
+1359588304 source:c:\users\jux\desktop\basicplatformer\object\entity\player\player.cpp
 	<SFML/Window.hpp>
 	"Player.hpp"
 
-1359508501 source:c:\users\jux\desktop\basicplatformer\objectmanager\objectmanager.cpp
+1359563360 source:c:\users\jux\desktop\basicplatformer\objectmanager\objectmanager.cpp
 	"ObjectManager.hpp"
 
-1359556645 source:c:\users\jux\desktop\basicplatformer\object\entity\entity.cpp
+1359587782 source:c:\users\jux\desktop\basicplatformer\object\entity\entity.cpp
 	<GL/GL.h>
 	"../../LevelManager/LevelManager.hpp"
 	"Entity.hpp"
+
+1359570521 source:c:\users\jux\desktop\basicplatformer\resourcemanager\gamepath.cpp
+	"GamePath.hpp"
+
+1359569554 c:\users\jux\desktop\basicplatformer\resourcemanager\gamepath.hpp
+	<string>
+
+1359573498 c:\users\jux\desktop\basicplatformer\resourcemanager\resourcemanager.hpp
+	<SFML/Audio.hpp>
+	<algorithm>
+	<string>
+	<list>
+
+1359573079 source:c:\users\jux\desktop\basicplatformer\resourcemanager\resourcemanager.cpp
+	<iostream>
+	<algorithm>
+	"ResourceManager.hpp"
+	"GamePath.hpp"
 

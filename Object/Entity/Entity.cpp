@@ -7,6 +7,7 @@ Entity::Entity(){
 	Layer=0;
 	MaxSpeed=8;
 	Physic=PHYS_Falling;
+	Height=1;
 }
 
 Entity::Entity(const vec2f &Location){
@@ -15,6 +16,7 @@ Entity::Entity(const vec2f &Location){
 	Layer=0;
 	MaxSpeed=8;
 	Physic=PHYS_Falling;
+	Height=1;
 }
 
 void Entity::Create(){}
@@ -27,19 +29,19 @@ void Entity::Tick(){
 	if(fabs(Velocity.x)>MaxSpeed) Velocity.x=sign(Velocity.x)*MaxSpeed;
     if(fabs(Velocity.y)>MaxSpeed) Velocity.y=sign(Velocity.y)*MaxSpeed;
     int SignX(0);
-    if(Velocity.x!=0) sign(Velocity.x);
+    if(Velocity.x!=0) SignX=sign(Velocity.x);
     GridLocation=SnapToGrid(Location)/16;
-    if (Physic!=PHYS_Landed){
+    if(Physic!=PHYS_Landed){
         if (Velocity.y>0 && Level->GetBlockAt(GridLocation+vec2i(0,1))>0 && Location.y+Velocity.y>=GridLocation.y*16){
             Velocity.y=0;
             Physic=PHYS_Landed;
             Location.y=GridLocation.y*16;
         }
     }
-    if (Physic==PHYS_Landed){
-        if (Level->GetBlockAt(GridLocation+vec2i(0,1))<=0) Physic=PHYS_Falling;
+    if(Physic==PHYS_Landed){
+        if(Level->GetBlockAt(GridLocation+vec2i(0,1))<=0) Physic=PHYS_Falling;
     }
-    if (Physic==PHYS_Jumping){
+    if(Physic==PHYS_Jumping){
         if(Velocity.y>0){
             Physic=PHYS_Falling;
             if(Level->GetBlockAt(GridLocation+vec2i(SignX,1))>0) Velocity.y=0;
@@ -52,14 +54,22 @@ void Entity::Tick(){
             }
         }
     }
+    int Block;
     if(Velocity.x!=0){
         int Sign=sign(Velocity.x);
-        int Block=Level->GetBlockAt(GridLocation+vec2i(Sign,0));
-		if(Block>0 || Block==-1){
-			Velocity.x=0;
-			Location.x=(GridLocation.x)*16;
+        for (int i=0; i<Height; i++){
+			Block=Level->GetBlockAt(GridLocation+vec2i(Sign,-i));
+			if(Block>0 || Block==-1){
+                Velocity.x=0;
+                Location.x=(GridLocation.x)*16;
+			}
 		}
 	}
+	Block=Level->GetBlockAt(GridLocation);
+    if(Block>0 || Block==-1){
+        Location.y-=16;
+        Location.x=(GridLocation.x)*16;
+    }
 	Location+=Velocity;
 }
 

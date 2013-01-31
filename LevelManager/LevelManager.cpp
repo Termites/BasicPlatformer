@@ -1,7 +1,8 @@
-#include "LevelManager.hpp"
 #include<SFML/Graphics.hpp>
 #include<GL/GL.h>
 #include<fstream>
+#include "LevelManager.hpp"
+#include "../ResourceManager/GamePath.hpp"
 
 GLuint ConvertToGLTexture(const sf::Image & Image){
 	GLuint TextureID;
@@ -28,40 +29,39 @@ LevelManager::~LevelManager(){
 	}
 }
 
-char LevelManager::GetBlockAt(const vec2i& Location){
+char LevelManager::GetBlockAt(const vec2i &Location){
 	if (Location.x < 0 || Location.y <0 || Location.x>=Size.x || Location.y>=Size.y) return -1;
 	return Tileset[Location.y][Location.x];
 }
 
-void LevelManager::SetBlockAt(const vec2i& Location, char B){
+void LevelManager::SetBlockAt(const vec2i &Location, char B){
 	if (Location.x < 0 || Location.y <0 || Location.x>=Size.x || Location.y>=Size.y) return;
 	Tileset[Location.y][Location.x] = B;
 }
 
 void LevelManager::LoadTileset(const std::string& File){
 	sf::Image I;
-	if (!I.LoadFromFile(File)) return;
+	if (!I.LoadFromFile(GamePath::Tileset+"Tileset"+File+".png")) return;
 	TilesetTexture = ConvertToGLTexture(I);
 	TilesetWidth = I.GetWidth()/16;
 	TilesetHeight = I.GetHeight()/16;
 }
 
 void LevelManager::LoadLevel(const std::string &File){
-	std::ifstream Input(File.c_str());
+	std::ifstream Input(GamePath::Level+File.c_str()+".lev");
 	if (!Input.is_open()){
 		return;
 	}
-	int R,G,B;
 	char Sep;
-	Input>>R>>Sep>>G>>Sep>>B;
-	Input>>Size.x>>Sep>>Size.y;
-	Tileset = new char*[Size.y];
-	for (int i=0;i<Size.y;++i){
-		Tileset[i] = new char[Size.x];
+	Input >> R >> Sep >> G >> Sep >> B;
+	Input >> Size.x >> Sep >> Size.y;
+	Tileset=new char*[Size.y];
+	for(int i=0; i<Size.y; ++i){
+		Tileset[i]=new char[Size.x];
 		for (int j=0; j<Size.x; ++j){
 		    int id;
-			Input>>id>>Sep;
-			Tileset[i][j] = id;
+			Input >> id >> Sep;
+			Tileset[i][j]=id;
 		}
 	}
 	Input.close();
@@ -76,6 +76,7 @@ void LevelManager::Tick(){
 }
 
 void LevelManager::Draw(){
+    glClearColor(R,G,B,1.0);
 	glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D,TilesetTexture);
 	for (int i=0;i<Size.y;++i){

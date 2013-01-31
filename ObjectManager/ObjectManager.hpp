@@ -12,8 +12,8 @@ class ObjectManager{
 	public:
 		ObjectManager();
 		~ObjectManager();
-		void RegisterObject(Object* NewObj);
-		void DeleteObject(Object* Obj);
+		void RegisterObject(Object *NewObj);
+		void DeleteObject(Object *Obj);
 		void Create();
 		void Tick();
 		void Draw();
