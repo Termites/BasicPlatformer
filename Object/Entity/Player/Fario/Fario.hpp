@@ -9,6 +9,7 @@ class Fario : public Player{
 	public:
         Fario(const vec2f &L) : Player(L){
             Spr=R.LoadSprite("Fario");
+            Anims=R.LoadAnim("Animations");
         }
 
 	protected:

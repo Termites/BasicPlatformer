@@ -27,7 +27,7 @@ int main(int arg_c,char*argv[]){
 	App.SetFramerateLimit(60);
 	InitializeGL(800,600);
 	LevelManager L;
-    GamePath::Root="C:\\Users\\Vedia\\Documents\\GitHub\\BasicPlatformer"; // GamePath::Root="C:\\Users\\JUX\\Desktop\\BasicPlatformer\\";
+    GamePath::Root="C:\\Users\\JUX\\Desktop\\BasicPlatformer"; // GamePath::Root="C:\\Users\\JUX\\Desktop\\BasicPlatformer\\";
     GamePath::GeneratePath();
     sf::SoundBuffer &B=R.LoadSound("MarioJump");
 	sf::Sound S;

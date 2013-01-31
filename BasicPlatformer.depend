@@ -1,12 +1,13 @@
 # depslib dependency file v1.0
-1359586044 source:c:\users\jux\desktop\basicplatformer\levelmanager\levelmanager.cpp
+1359662316 source:c:\users\jux\desktop\basicplatformer\levelmanager\levelmanager.cpp
 	<SFML/Graphics.hpp>
 	<GL/GL.h>
 	<fstream>
 	"LevelManager.hpp"
 	"../ResourceManager/GamePath.hpp"
+	"../ResourceManager/ResourceManager.hpp"
 
-1359586058 c:\users\jux\desktop\basicplatformer\levelmanager\levelmanager.hpp
+1359662316 c:\users\jux\desktop\basicplatformer\levelmanager\levelmanager.hpp
 	<GL/GL.h>
 	<string>
 	"../Math/Math.hpp"
@@ -22,31 +23,35 @@
 1359507533 c:\users\jux\desktop\basicplatformer\object\object.hpp
 	"../Math/Math.hpp"
 
-1359585973 source:c:\users\jux\desktop\basicplatformer\main.cpp
+1359663390 source:c:\users\jux\desktop\basicplatformer\main.cpp
 	<iostream>
 	<SFML/Window.hpp>
 	<GL/GL.h>
 	"Math/Math.hpp"
 	"LevelManager/LevelManager.hpp"
 	"Object/Object.hpp"
-	"Object/Entity/Player/Player.hpp"
+	"Object/Entity/Player/Fario/Fario.hpp"
 	"ResourceManager/GamePath.hpp"
 	"ResourceManager/ResourceManager.hpp"
 
-1359507533 c:\users\jux\desktop\basicplatformer\object\entity\player\player.hpp
+1359663509 c:\users\jux\desktop\basicplatformer\object\entity\player\player.hpp
 	"../Entity.hpp"
 
-1359591026 c:\users\jux\desktop\basicplatformer\object\entity\entity.hpp
+1359666561 c:\users\jux\desktop\basicplatformer\object\entity\entity.hpp
 	"../Object.hpp"
+	"../../ResourceManager/ResourceManager.hpp"
 
-1359588304 source:c:\users\jux\desktop\basicplatformer\object\entity\player\player.cpp
+1359668026 source:c:\users\jux\desktop\basicplatformer\object\entity\player\player.cpp
+	<iostream>
 	<SFML/Window.hpp>
 	"Player.hpp"
+	"../../../LevelManager/LevelManager.hpp"
+	"../../../ResourceManager/ResourceManager.hpp"
 
 1359563360 source:c:\users\jux\desktop\basicplatformer\objectmanager\objectmanager.cpp
 	"ObjectManager.hpp"
 
-1359587782 source:c:\users\jux\desktop\basicplatformer\object\entity\entity.cpp
+1359665585 source:c:\users\jux\desktop\basicplatformer\object\entity\entity.cpp
 	<GL/GL.h>
 	"../../LevelManager/LevelManager.hpp"
 	"Entity.hpp"
@@ -57,15 +62,20 @@
 1359569554 c:\users\jux\desktop\basicplatformer\resourcemanager\gamepath.hpp
 	<string>
 
-1359573498 c:\users\jux\desktop\basicplatformer\resourcemanager\resourcemanager.hpp
+1359664177 c:\users\jux\desktop\basicplatformer\resourcemanager\resourcemanager.hpp
+	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
+	<GL/GL.h>
 	<algorithm>
 	<string>
 	<list>
+	<map>
+	"../Math/Math.hpp"
 
-1359573079 source:c:\users\jux\desktop\basicplatformer\resourcemanager\resourcemanager.cpp
+1359666016 source:c:\users\jux\desktop\basicplatformer\resourcemanager\resourcemanager.cpp
 	<iostream>
 	<algorithm>
+	<fstream>
 	"ResourceManager.hpp"
 	"GamePath.hpp"
 
@@ -149,5 +159,8 @@
 	"../ResourceManager/ResourceManager.hpp"
 
 1359654173 c:\users\vedia\documents\github\basicplatformer\object\entity\player\fario\fario.hpp
+	"../Player.hpp"
+
+1359665095 c:\users\jux\desktop\basicplatformer\object\entity\player\fario\fario.hpp
 	"../Player.hpp"
 

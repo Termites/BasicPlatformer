@@ -9,6 +9,9 @@ Entity::Entity(){
 	MaxSpeedY=10;
 	Physic=PHYS_Falling;
 	Height=1;
+	Direction=1;
+	CurrentAnim=NULL;
+	FrameIndex=0;
 }
 
 Entity::Entity(const vec2f &Location){
@@ -19,6 +22,9 @@ Entity::Entity(const vec2f &Location){
 	MaxSpeedY=10;
 	Physic=PHYS_Falling;
 	Height=1;
+	Direction=1;
+	CurrentAnim=NULL;
+	FrameIndex=0;
 }
 
 void Entity::Create(){}

@@ -35,6 +35,7 @@ class Entity : public Object
         int Height;
         Sprite Spr;
         AnimPack Anims;
-        Anim CurrentAnim;
-        int FrameIndex;
+        Anim *CurrentAnim;
+        float FrameIndex;
+        int Direction;
 };

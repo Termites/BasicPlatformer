@@ -42,7 +42,7 @@ AnimPack &ResourceManager::LoadAnim(const std::string &AnimFile){
     AnimList.resize(AnimList.size()+1);
     Resource<AnimPack> &R=AnimList.back();
     R.Name=LowerName;
-    std::string Path=GamePath::Animation+AnimFile+".anim";
+    std::string Path=GamePath::Animation+AnimFile+".txt";
     std::ifstream File(Path.c_str());
     while(File.good()){
         std::string AnimName;
