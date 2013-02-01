@@ -1,5 +1,4 @@
 #include "MystBlock.hpp"
-#include <iostream>
 
 extern ResourceManager R;
 
@@ -12,10 +11,6 @@ MystBlock::MystBlock(const vec2i &Location) : TileEntity(Location){
 }
 
 void MystBlock::OnTileChangement(const Tile &New){
-    Level->SetBlockAt(TileLocation,Tile(0,true));
     PlayAnim("activated");
-    Physic=PHYS_Falling;
-    Velocity.y=-8;
     Activated=true;
-    std::cout << "a" << std::endl;
 }

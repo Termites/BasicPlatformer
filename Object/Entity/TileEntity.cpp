@@ -13,7 +13,7 @@ void TileEntity::Create(){
 }
 
 void TileEntity::TileChanged(const vec2i &Location, const Tile &NewTile){
-    if(Location==TileLocation) OnTileChangement(NewTile);
+    if(Location==TileLocation && NewTile.bSolid==false) OnTileChangement(NewTile);
 }
 
 TileEntity::~TileEntity(){}

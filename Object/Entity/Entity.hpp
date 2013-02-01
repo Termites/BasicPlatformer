@@ -23,6 +23,7 @@ class Entity : public Object
 		virtual void WireDraw();
 		virtual void UpdateAnim();
 		virtual void PlayAnim(const std::string &S);
+		virtual void HitAbove(){}
 
     protected :
         vec2f Location;

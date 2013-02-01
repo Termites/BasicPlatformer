@@ -37,15 +37,15 @@
 	"ResourceManager/ResourceManager.hpp"
 	"ResourceManager/SoundManager.hpp"
 
-1359739224 c:\users\jux\desktop\basicplatformer\object\entity\player\player.hpp
+1359743651 c:\users\jux\desktop\basicplatformer\object\entity\player\player.hpp
 	"../Entity.hpp"
 	"../../../ResourceManager/ResourceManager.hpp"
 
-1359741943 c:\users\jux\desktop\basicplatformer\object\entity\entity.hpp
+1359743690 c:\users\jux\desktop\basicplatformer\object\entity\entity.hpp
 	"../Object.hpp"
 	"../../ResourceManager/ResourceManager.hpp"
 
-1359739224 source:c:\users\jux\desktop\basicplatformer\object\entity\player\player.cpp
+1359743803 source:c:\users\jux\desktop\basicplatformer\object\entity\player\player.cpp
 	<iostream>
 	<SFML/Window.hpp>
 	<SFML/Audio.hpp>
@@ -57,7 +57,7 @@
 1359742953 source:c:\users\jux\desktop\basicplatformer\objectmanager\objectmanager.cpp
 	"ObjectManager.hpp"
 
-1359742346 source:c:\users\jux\desktop\basicplatformer\object\entity\entity.cpp
+1359743580 source:c:\users\jux\desktop\basicplatformer\object\entity\entity.cpp
 	<GL/GL.h>
 	"../../LevelManager/LevelManager.hpp"
 	"../../ResourceManager/SoundManager.hpp"
@@ -179,7 +179,7 @@
 	<SFML/Audio.hpp>
 	<List>
 
-1359742737 source:c:\users\jux\desktop\basicplatformer\object\entity\tileentity.cpp
+1359743842 source:c:\users\jux\desktop\basicplatformer\object\entity\tileentity.cpp
 	"TileEntity.hpp"
 	<iostream>
 
@@ -187,9 +187,8 @@
 	"Entity.hpp"
 	"../../LevelManager/LevelManager.hpp"
 
-1359742566 source:c:\users\jux\desktop\basicplatformer\object\entity\block\mystblock.cpp
+1359743810 source:c:\users\jux\desktop\basicplatformer\object\entity\block\mystblock.cpp
 	"MystBlock.hpp"
-	<iostream>
 
 1359741475 c:\users\jux\desktop\basicplatformer\object\entity\block\mystblock.hpp
 	"../TileEntity.hpp"

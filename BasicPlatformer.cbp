@@ -54,12 +54,16 @@
 		<Unit filename="Math/Math.hpp" />
 		<Unit filename="ObjectManager/ObjectManager.cpp" />
 		<Unit filename="ObjectManager/ObjectManager.hpp" />
+		<Unit filename="Object/Entity/Block/MystBlock.cpp" />
+		<Unit filename="Object/Entity/Block/MystBlock.hpp" />
 		<Unit filename="Object/Entity/Entity.cpp" />
 		<Unit filename="Object/Entity/Entity.hpp" />
 		<Unit filename="Object/Entity/Player/Fario/Fario.hpp" />
 		<Unit filename="Object/Entity/Player/Player.cpp" />
 		<Unit filename="Object/Entity/Player/Player.hpp" />
 		<Unit filename="Object/Entity/Player/Ruigi/Ruigi.hpp" />
+		<Unit filename="Object/Entity/TileEntity.cpp" />
+		<Unit filename="Object/Entity/TileEntity.hpp" />
 		<Unit filename="Object/Object.hpp" />
 		<Unit filename="ResourceManager/GamePath.cpp" />
 		<Unit filename="ResourceManager/GamePath.hpp" />

@@ -14,6 +14,7 @@ class Player : public Entity{
             DestroySound=R.LoadSound("BrickDestroyed");
 	    }
 		virtual void Tick();
+		void HitAbove();
 
 	protected:
         int MaxHeight;

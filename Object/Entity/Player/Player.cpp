@@ -62,17 +62,16 @@ void Player::Tick(){
         Velocity.x=0;
         Location.x=GridLocation.x*16;
     }
-    if(Level->GetBlockAt(GridLocation+vec2i(0,-1)).BlockID==10 && Physic==PHYS_Falling){
-            Tile T;
-            Level->SetBlockAt(GridLocation+vec2i(0,-1),T);
-            SM.PlaySound(DestroySound,false);
-    }
-    if(Level->GetBlockAt(GridLocation+vec2i(0,-1)).BlockID==8 && Physic==PHYS_Falling){
-            Tile T;
-            T.BlockID=11;
-            T.bSolid=true;
-            Level->SetBlockAt(GridLocation+vec2i(0,-1),T);
-            SM.PlaySound(DestroySound,false);
+    if(Level->GetBlockAt(GridLocation+vec2i(0,-1)).BlockID==1 && Physic!=PHYS_Falling && Velocity.y<0){
+        Tile T;
+        T.BlockID=0;
+        T.bSolid=true;
+        Level->SetBlockAt(GridLocation+vec2i(0,-1),T);
     }
     Entity::Tick();
+}
+
+void Player::HitAbove(){
+    Level->SetBlockAt(GridLocation+vec2i(0,-1),Tile(0,false));
+    SM.PlaySound(DestroySound,false);
 }

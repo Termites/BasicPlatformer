@@ -3,22 +3,22 @@
 	<ActiveTarget name="Debug" />
 	<File name="Object\Entity\Entity.hpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="678" topLine="6" />
+			<Cursor1 position="546" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="Object\Entity\Player\Fario\Fario.hpp" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="319" topLine="0" />
+			<Cursor1 position="394" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Object\Entity\Player\Player.cpp" open="1" top="1" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Object\Entity\Player\Player.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1513" topLine="18" />
+			<Cursor1 position="2684" topLine="37" />
 		</Cursor>
 	</File>
 	<File name="Object\Entity\Player\Player.hpp" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="481" topLine="0" />
+			<Cursor1 position="381" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="Object\Entity\Player\Ruigi\Ruigi.hpp" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -43,7 +43,7 @@
 	</File>
 	<File name="ResourceManager\ResourceManager.cpp" open="1" top="0" tabpos="17" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="573" topLine="0" />
+			<Cursor1 position="2228" topLine="30" />
 		</Cursor>
 	</File>
 	<File name="ResourceManager\ResourceManager.hpp" open="1" top="0" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -51,24 +51,24 @@
 			<Cursor1 position="779" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="ResourceManager\SoundManager.cpp" open="1" top="0" tabpos="19" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="602" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="ResourceManager\SoundManager.hpp" open="1" top="0" tabpos="18" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="299" topLine="0" />
-		</Cursor>
-	</File>
 	<File name="Math\Math.hpp" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1811" topLine="74" />
 		</Cursor>
 	</File>
+	<File name="ResourceManager\SoundManager.cpp" open="1" top="0" tabpos="19" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="602" topLine="0" />
+		</Cursor>
+	</File>
 	<File name="ObjectManager\ObjectManager.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="0" topLine="0" />
+			<Cursor1 position="1033" topLine="13" />
+		</Cursor>
+	</File>
+	<File name="ResourceManager\SoundManager.hpp" open="1" top="0" tabpos="18" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="299" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="ObjectManager\ObjectManager.hpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -78,12 +78,17 @@
 	</File>
 	<File name="Object\Entity\Entity.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1363" topLine="45" />
+			<Cursor1 position="2004" topLine="18" />
 		</Cursor>
 	</File>
 	<File name="LevelManager\LevelManager.cpp" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="297" topLine="0" />
+			<Cursor1 position="872" topLine="15" />
+		</Cursor>
+	</File>
+	<File name="Object\Entity\TileEntity.hpp" open="1" top="0" tabpos="21" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="12" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="LevelManager\LevelManager.hpp" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -93,7 +98,22 @@
 	</File>
 	<File name="Main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1060" topLine="4" />
+			<Cursor1 position="1145" topLine="4" />
+		</Cursor>
+	</File>
+	<File name="Object\Entity\TileEntity.cpp" open="1" top="1" tabpos="20" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="196" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Object\Entity\Block\MystBlock.hpp" open="1" top="0" tabpos="23" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="122" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Object\Entity\Block\MystBlock.cpp" open="1" top="0" tabpos="22" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="287" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

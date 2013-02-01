@@ -51,6 +51,7 @@ void Entity::Tick(){
 	}
 	if(Physic!=PHYS_Landed && Velocity.y<0){
 	    if(Level->GetBlockAt(GridLocation+vec2i(0,-1)).bSolid){
+            HitAbove();
 	        Physic=PHYS_Falling;
 	        Velocity.y=0;
 	    }
