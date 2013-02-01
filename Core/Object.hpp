@@ -8,7 +8,6 @@ class Object
 {
 	protected:
 			LevelManager * Level;
-
 	public:
 		virtual void Create() {}
 		virtual void Tick() {}
@@ -19,4 +18,6 @@ class Object
 		{
 			Level = L;
 		}
+
+		virtual void TileChanged(const vec2i&Loc);
 };
