@@ -8,6 +8,7 @@
 #include "Core/Resources/GamePath.hpp"
 #include "Core/Resources/ResourceManager.hpp"
 #include "Core/SoundManager.hpp"
+#include "Core/Entity/Tile/MystBlock.hpp"
 
 /*
 	Pour linker la SFML :
@@ -71,6 +72,7 @@ int main(int arg_c,char*argv[])
     L.LoadLevel("Level");
 
 	L.RegisterObject(new Player(vec2f(0,0)));
+    L.RegisterObject(new MysteriousBlock(vec2i(8,2)));
 
 	L.Create();
 

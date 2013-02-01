@@ -47,7 +47,7 @@
 1359483941 d:\development\shared\sfsetup\core\entity\player.hpp
 	"EntityBase.hpp"
 
-1359730932 source:d:\development\githubshared\basicplatformer\main.cpp
+1359737122 source:d:\development\githubshared\basicplatformer\main.cpp
 	<SFML/Window.hpp>
 	<GL/GL.h>
 	"Core/Math.hpp"
@@ -56,6 +56,7 @@
 	"Core/Resources/GamePath.hpp"
 	"Core/Resources/ResourceManager.hpp"
 	"Core/SoundManager.hpp"
+	"Core/Entity/Tile/MystBlock.hpp"
 
 1359734970 d:\development\githubshared\basicplatformer\core\math.hpp
 	<cmath>
@@ -82,7 +83,7 @@
 	"../Resources/ResourceManager.hpp"
 	<SFML/Audio.hpp>
 
-1359734339 source:d:\development\githubshared\basicplatformer\core\levelmanager.cpp
+1359735099 source:d:\development\githubshared\basicplatformer\core\levelmanager.cpp
 	"LevelManager.hpp"
 	<SFML/Graphics.hpp>
 	<GL/GL.h>
@@ -92,7 +93,7 @@
 	"Resources/ResourceManager.hpp"
 	"Debugger.hpp"
 
-1359732600 source:d:\development\githubshared\basicplatformer\core\entity\player.cpp
+1359735429 source:d:\development\githubshared\basicplatformer\core\entity\player.cpp
 	<SFML/Window.hpp>
 	"Player.hpp"
 	"../LevelManager.hpp"
@@ -140,4 +141,18 @@
 	<iostream>
 	<ostream>
 	<cstdlib>
+
+1359737168 source:d:\development\githubshared\basicplatformer\core\entity\tileentity.cpp
+	"TileEntity.hpp"
+	"../LevelManager.hpp"
+
+1359737330 d:\development\githubshared\basicplatformer\core\entity\tileentity.hpp
+	"EntityBase.hpp"
+	"../LevelManager.hpp"
+
+1359737318 source:d:\development\githubshared\basicplatformer\core\entity\tile\mystblock.cpp
+	"MystBlock.hpp"
+
+1359737142 d:\development\githubshared\basicplatformer\core\entity\tile\mystblock.hpp
+	"../TileEntity.hpp"
 

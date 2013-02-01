@@ -1,17 +1,24 @@
 #include "TileEntity.hpp"
-
-TileEntity::TileEntity(const vec2i&Location)
+#include "../LevelManager.hpp"
+#include<iostream>
+TileEntity::TileEntity(const vec2i&Location) : EntityBase(vec2i())
 {
-	EntityBase(Location*16);
+
 	TileLocation = Location;
-	Level->SetBlockAt(Location,Tile(15,true));
+    this->Location = TileLocation*16;
+    this->GridLocation = Location;
+    this->GridLocationExt = Location;
 }
 
+void TileEntity::Create()
+{
+    Level->SetBlockAt(TileLocation,Tile(15,true));
+}
 
 void TileEntity::TileChanged(const vec2i&Location,const Tile&NewTile)
 {
-	if (Location == TileLocation && NewTile.bSolid==false)
+	if (Location == TileLocation && NewTile.bSolid==false && NewTile.BlockID!=15)
 		OnTileChangement(NewTile);
 }
 
-TileEntity::~TileEntity(){}
+

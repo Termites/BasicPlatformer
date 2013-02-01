@@ -23,7 +23,7 @@ Player::Player(const vec2f & Location) : EntityBase(Location)
 void Player::HitAbove()
 {
     const Tile & B = Level->GetBlockAt(GridLocationExt - vec2i(0,1));
-    if (B.BlockID == 4)
+    if (B.BlockID == 15)
     {
         Level->SetBlockAt(GridLocationExt-vec2i(0,1),Tile(0,false));
         SM.PlaySound(BrickDestroyed);
@@ -94,8 +94,8 @@ void Player::Tick()
 
     vec2f & C = Level->GetCameraLocation();
 
-
-    if ( (Direction<0 && Location.x+Velocity.x < C.x ) ||  (Direction>0 && Location.x+Velocity.x+16 > C.x + 320))
+    int S = Velocity.x==0 ? Direction : sign(Velocity.x);
+    if ( (S<0 && Location.x+Velocity.x < C.x ) ||  (S>0 && Location.x+Velocity.x+16 > C.x + 320))
     {
         Velocity.x = 0;
         Acceleration.x=0;

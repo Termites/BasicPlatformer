@@ -53,6 +53,7 @@ void LevelManager::SetBlockAt(const vec2i& Location, const Tile&T)
 
 	Tileset[Location.y][Location.x] = T;
 
+    // On dit à toutes les instances que le bloc aux coordonnées Location a été changé en 'T'
 	ObjectController.TileChanged(Location,T);
 }
 
