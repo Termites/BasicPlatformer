@@ -1,8 +1,10 @@
 #include <GL/GL.h>
 #include "../../LevelManager/LevelManager.hpp"
+#include "../../ResourceManager/SoundManager.hpp"
 #include "Entity.hpp"
 
 extern ResourceManager R;
+extern SoundManager SM;
 
 Entity::Entity(){
 	Gravity=0.7;
@@ -32,36 +34,35 @@ Entity::Entity(const vec2f &Location){
 void Entity::Create(){}
 
 void Entity::Tick(){
-    Velocity+=Acceleration;
     if(Physic==PHYS_Falling) Velocity.y+=Gravity;
     if(fabs(Velocity.x)>MaxSpeedX) Velocity.x=sign(Velocity.x)*MaxSpeedX;
     if(fabs(Velocity.y)>MaxSpeedY) Velocity.y=sign(Velocity.y)*MaxSpeedY;
 	GridLocation=Location+Velocity;
 	GridLocation/=16;
 	GridLocationExt=SnapToGrid(Location + Velocity);
-	GridLocationExt.y-=1;
-	if(Physic==PHYS_Falling && Velocity.y>0){
-		if(Level->GetBlockAt(GridLocation)>0 && Location.y+Velocity.y>GridLocation.y*16){
+	GridLocationExt.x=GridLocation.x;
+	GridLocationExt.y--;
+	if(Physic!=PHYS_Landed && Velocity.y>=0){
+		if(Level->GetBlockAt(GridLocation).bSolid  && Location.y+Velocity.y>=GridLocation.y*16 ){
 			Velocity.y=0;
 			Location.y=GridLocation.y*16;
 			Physic=PHYS_Landed;
 		}
 	}
 	if(Physic!=PHYS_Landed && Velocity.y<0){
-	    if(Level->GetBlockAt(GridLocation+vec2i(0,-1))>0){
+	    if(Level->GetBlockAt(GridLocation+vec2i(0,-1)).bSolid){
 	        Physic=PHYS_Falling;
 	        Velocity.y=0;
 	    }
 	}
-	if(Physic==PHYS_Landed && (Level->GetBlockAt(GridLocation)<=0) && Location.x>GridLocation.x*16 && Location.x<GridLocation.x*16+16) Physic=PHYS_Falling;
+	if(Physic==PHYS_Landed && (!Level->GetBlockAt(GridLocation).bSolid) && Location.x>GridLocation.x*16 && Location.x<GridLocation.x*16+16) Physic=PHYS_Falling;
 	if(Velocity.x!=0){
 		int S=Velocity.x<0?-1:1;
-		for(int i(0); i<Height; i++){
-			if(Level->GetBlockAt(vec2i(GridLocation.x,GridLocationExt.y)+vec2i(S,-i)) > 0){
-			    if((S>=0 && Location.x+Velocity.x>=GridLocation.x*16+8) || (S<0 && Location.x+Velocity.x<=GridLocation.x*16+8)){
+		for(int i=0; i<Height; i++){
+			if(Level->GetBlockAt(GridLocationExt+vec2i(S,-i)).bSolid){
+			    if((S>=0 && Location.x+Velocity.x>=GridLocationExt.x*16+8) || (S<0 && Location.x+Velocity.x<=GridLocationExt.x*16+8)){
                     Velocity.x=0;
-                    Location.x=GridLocation.x*16+8;
-                    break;
+                    Location.x=GridLocationExt.x*16+8;
                 }
 			}
 		}
@@ -71,7 +72,6 @@ void Entity::Tick(){
 }
 
 void Entity::Draw(){
-    WireDraw();
     if (CurrentAnim!=NULL){
         int i=FrameIndex;
         R.DrawSprite(Spr,Location-vec2f(SpriteOffset)-Level->GetCameraLocation(),CurrentAnim->Frames[i],vec2f(Direction,1));

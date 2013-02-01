@@ -4,9 +4,19 @@
 #include "../Math/Math.hpp"
 #include "../ObjectManager/ObjectManager.hpp"
 
+struct Tile{
+    char BlockID;
+    bool bSolid;
+    Tile(char id=0,bool solid=false){
+    	BlockID=id;
+    	bSolid=solid;
+    }
+};
+
 class LevelManager{
 	private:
-		char** Tileset;
+		Tile **Tileset;
+		bool *TilesetTemplate;
 		vec2i Size;
 		vec2f CameraLocation;
 		GLuint TilesetTexture;
@@ -14,12 +24,13 @@ class LevelManager{
 		int TilesetHeight;
 		ObjectManager ObjectController;
 		float R,G,B;
+		Tile FallBack;
 
 	public:
 		LevelManager();
 		~LevelManager();
-		char GetBlockAt(const vec2i &Location);
-		void SetBlockAt(const vec2i &Location, char B);
+		const Tile &GetBlockAt(const vec2i &Location);
+		void SetBlockAt(const vec2i &Location, const Tile &T);
 		void Create();
 		void Tick();
 		void Draw();

@@ -2,6 +2,7 @@
 #include "../Math/Math.hpp"
 
 class LevelManager;
+struct Tile;
 
 class Object{
 	private:
@@ -14,6 +15,7 @@ class Object{
 		void SetLevel(LevelManager *L){
             Level=L;
 		}
+		virtual void TileChanged(const vec2i &Loc,const Tile &T){}
 
 	protected:
 	    LevelManager *Level;

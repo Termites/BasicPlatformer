@@ -26,7 +26,8 @@ typedef std::map<std::string,Anim> AnimPack;
 
 struct Sprite{
     GLuint Tex;
-    int Width,Height,FrameWidth,FrameHeight;
+    int Width,Height;
+    vec2i FrameSize;
 };
 
 inline char Lower(char C){
@@ -42,7 +43,7 @@ class ResourceManager{
 	public:
 		sf::SoundBuffer &LoadSound(const std::string &S);
 		AnimPack &LoadAnim(const std::string &S);
-		Sprite &LoadSprite(const std::string &S);
+		Sprite &LoadSprite(const std::string &S, const vec2i &FS);
 		void DrawSprite(Sprite &S, const vec2f &Location, int FrameIndex, const vec2f &Scale);
 
     protected:

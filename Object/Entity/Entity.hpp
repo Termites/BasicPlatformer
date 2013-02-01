@@ -26,7 +26,7 @@ class Entity : public Object
     protected :
         vec2f Location;
         vec2f Velocity;
-        vec2f Acceleration;
+        float Acceleration,Deceleration;
         vec2i GridLocation;
         float Gravity;
         float MaxSpeedX;

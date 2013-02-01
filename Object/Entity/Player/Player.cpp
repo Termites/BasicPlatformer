@@ -1,5 +1,5 @@
 #include <iostream>
-#define debug(a,b) std::cout << a << " " << b << std::endl
+#define debug(a) std::cout << a << std::endl
 #include <SFML/Window.hpp>
 #include <SFML/Audio.hpp>
 #include "Player.hpp"
@@ -17,26 +17,29 @@ void Player::Tick(){
     C.y=Location.y-224;
     if(GlobalInput->IsKeyDown(sf::Key::Left) || GlobalInput->IsKeyDown(sf::Key::Right)){
         if(GlobalInput->IsKeyDown(sf::Key::Left)){
-            Velocity.x-=0.5;
+            if(Velocity.x>0) PlayAnim("change");
+            else PlayAnim("walk");
+            Velocity.x-=Acceleration;
             Direction=-1;
         }
         else if(GlobalInput->IsKeyDown(sf::Key::Right)){
-            Velocity.x+=0.5;
+            if(Velocity.x<0) PlayAnim("change");
+            else PlayAnim("walk");
+            Velocity.x+=Acceleration;
             Direction=1;
         }
-        PlayAnim("walk");
     }
     else{
-        if(Velocity.x>0) Velocity.x-=0.3;
-        if(Velocity.x<0) Velocity.x+=0.3;
+        if(Velocity.x>0) Velocity.x-=Deceleration;
+        if(Velocity.x<0) Velocity.x+=Deceleration;
         if(Velocity.x<0.3 && Velocity.x>-0.3){
             Velocity.x=0;
             PlayAnim("idle");
         }
     }
     if(GlobalInput->IsKeyDown(sf::Key::Left) && GlobalInput->IsKeyDown(sf::Key::Right)){
-        if(Velocity.x>0) Velocity.x-=0.3;
-        if(Velocity.x<0) Velocity.x+=0.3;
+        if(Velocity.x>0) Velocity.x-=Deceleration;
+        if(Velocity.x<0) Velocity.x+=Deceleration;
         if(Velocity.x<0.3 && Velocity.x>-0.3){
             Velocity.x=0;
             PlayAnim("idle");
@@ -49,6 +52,7 @@ void Player::Tick(){
         PlayAnim("jump");
         SM.PlaySound(JumpSound,false);
     }
+    if(Physic==PHYS_Jumping || Physic==PHYS_Falling) PlayAnim("jump");
     if (!GlobalInput->IsKeyDown(sf::Key::Space) || (Physic==PHYS_Jumping && (Location.y<MaxHeight))) Physic=PHYS_Falling;
     if (Velocity.x<0 && GridLocation.x<=0 && Location.x+Velocity.x<=0){
         Velocity.x=0;
@@ -58,6 +62,17 @@ void Player::Tick(){
         Velocity.x=0;
         Location.x=GridLocation.x*16;
     }
+    if(Level->GetBlockAt(GridLocation+vec2i(0,-1)).BlockID==10 && Physic==PHYS_Falling){
+            Tile T;
+            Level->SetBlockAt(GridLocation+vec2i(0,-1),T);
+            SM.PlaySound(DestroySound,false);
+    }
+    if(Level->GetBlockAt(GridLocation+vec2i(0,-1)).BlockID==8 && Physic==PHYS_Falling){
+            Tile T;
+            T.BlockID=11;
+            T.bSolid=true;
+            Level->SetBlockAt(GridLocation+vec2i(0,-1),T);
+            SM.PlaySound(DestroySound,false);
+    }
     Entity::Tick();
-    WireDraw();
 }

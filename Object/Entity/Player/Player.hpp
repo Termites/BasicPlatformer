@@ -11,10 +11,12 @@ class Player : public Entity{
 	    Player(const vec2f &L){
 	        Location=L;
             JumpSound=R.LoadSound("MarioJump");
+            DestroySound=R.LoadSound("BrickDestroyed");
 	    }
 		virtual void Tick();
 
 	protected:
         int MaxHeight;
         sf::SoundBuffer JumpSound;
+        sf::SoundBuffer DestroySound;
 };

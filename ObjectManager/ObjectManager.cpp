@@ -19,7 +19,7 @@ void ObjectManager::DeleteObject(Object *Obj){
 
 void ObjectManager::Create(){
 	for(auto it=CurrentObjectList.begin(); it!=CurrentObjectList.end(); ++it){
-		Object * O = *it;
+		Object *O=*it;
 		O->Create();
 	}
 }
@@ -35,6 +35,13 @@ void ObjectManager::Tick(){
 		Object *O=*it;
 		O->Tick();
 	}
+}
+
+void ObjectManager::TileChanged(const vec2i &Location,const Tile &T){
+   for(auto it(CurrentObjectList.begin()); it!=CurrentObjectList.end(); ++it){
+        Object *O=*it;
+        O->TileChanged(Location,T);
+    }
 }
 
 void ObjectManager::Draw(){

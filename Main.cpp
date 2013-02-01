@@ -5,6 +5,7 @@
 #include "LevelManager/LevelManager.hpp"
 #include "Object/Object.hpp"
 #include "Object/Entity/Player/Fario/Fario.hpp"
+#include "Object/Entity/Block/MystBlock.hpp"
 #include "ResourceManager/GamePath.hpp"
 #include "ResourceManager/ResourceManager.hpp"
 #include "ResourceManager/SoundManager.hpp"
@@ -29,11 +30,12 @@ int main(int arg_c,char*argv[]){
 	App.SetFramerateLimit(60);
 	InitializeGL(800,600);
 	LevelManager L;
-    GamePath::Root="C:\\Users\\JUX\\Desktop\\BasicPlatformer"; // GamePath::Root="C:\\Users\\JUX\\Desktop\\BasicPlatformer\\";
+    GamePath::Root="C:\\Users\\JUX\\Desktop\\BasicPlatformer";
     GamePath::GeneratePath();
+    L.LoadTileset("Tileset1");
     L.LoadLevel("1");
-	L.LoadTileset("1");
 	L.RegisterObject(new Fario(vec2f(16*1,16*11)));
+	L.RegisterObject(new MystBlock(vec2i(0,0)));
 	L.Create();
 	while(App.IsOpened()){
 		sf::Event e;

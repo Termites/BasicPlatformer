@@ -42,7 +42,7 @@ AnimPack &ResourceManager::LoadAnim(const std::string &AnimFile){
     AnimList.resize(AnimList.size()+1);
     Resource<AnimPack> &R=AnimList.back();
     R.Name=LowerName;
-    std::string Path=GamePath::Animation+AnimFile+".txt";
+    std::string Path=GamePath::Animation+AnimFile+".anim";
     std::ifstream File(Path.c_str());
     while(File.good()){
         std::string AnimName;
@@ -64,7 +64,7 @@ AnimPack &ResourceManager::LoadAnim(const std::string &AnimFile){
     return R.Value;
 }
 
-Sprite &ResourceManager::LoadSprite(const std::string &SpriteFile){
+Sprite &ResourceManager::LoadSprite(const std::string &SpriteFile, const vec2i &FrameSize){
 	std::string LowerName;
     LowerName.resize(SpriteFile.size());
     std::transform(SpriteFile.begin(),SpriteFile.end(),LowerName.begin(),Lower);
@@ -81,15 +81,14 @@ Sprite &ResourceManager::LoadSprite(const std::string &SpriteFile){
 	R.Value.Tex=ConvertToGLTexture(I);
 	R.Value.Width=I.GetWidth();
 	R.Value.Height=I.GetHeight();
-	R.Value.FrameWidth=17;
-	R.Value.FrameHeight=17;
+	R.Value.FrameSize=FrameSize;
     return R.Value;
 }
 
 void ResourceManager::DrawSprite(Sprite &S, const vec2f &Location, int FrameIndex, const vec2f &Scale){
     vec2f UV;
-    float w=S.FrameWidth/float(S.Width);
-    float h=S.FrameHeight/float(S.Height);
+    float w=S.FrameSize.x/float(S.Width);
+    float h=S.FrameSize.y/float(S.Height);
     UV.x=FrameIndex%S.Width;
     UV.y=FrameIndex/S.Width;
     UV.x*=w;
@@ -110,11 +109,11 @@ void ResourceManager::DrawSprite(Sprite &S, const vec2f &Location, int FrameInde
         glTexCoord2f(x1,y1);
         glVertex3f(Location.x,Location.y,1);
         glTexCoord2f(x2,y1);
-        glVertex3f(Location.x+(S.FrameWidth*fabs(Scale.x)),Location.y,1);
+        glVertex3f(Location.x+(S.FrameSize.x*fabs(Scale.x)),Location.y,1);
         glTexCoord2f(x2,y2);
-        glVertex3f(Location.x+(S.FrameWidth*fabs(Scale.x)),Location.y+(S.FrameHeight*fabs(Scale.y)),1);
+        glVertex3f(Location.x+(S.FrameSize.x*fabs(Scale.x)),Location.y+(S.FrameSize.y*fabs(Scale.y)),1);
         glTexCoord2f(x1,y2);
-        glVertex3f(Location.x,Location.y+(S.FrameHeight*fabs(Scale.y)),1);
+        glVertex3f(Location.x,Location.y+(S.FrameSize.y*fabs(Scale.y)),1);
     glEnd();
     glBindTexture(GL_TEXTURE_2D,0);
     glDisable(GL_TEXTURE_2D);

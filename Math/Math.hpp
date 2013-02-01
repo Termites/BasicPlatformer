@@ -128,3 +128,7 @@ inline int GetSnappedValue(int x){
 inline vec2i SnapToGrid(const vec2i &V){
     return vec2i(GetSnappedValue(V.x)/16,GetSnappedValue(V.y)/16);
 }
+template<typename T,typename T2>
+bool operator == (const Vector2D<T> & A,const T2&B){
+    return A.x==B.x && A.y==B.y;
+}

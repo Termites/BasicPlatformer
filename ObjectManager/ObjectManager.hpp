@@ -3,6 +3,7 @@
 #include "../Object/Object.hpp"
 
 typedef std::list<Object*> ObjectList;
+struct Tile;
 
 class ObjectManager{
 	private:
@@ -17,6 +18,7 @@ class ObjectManager{
 		void Create();
 		void Tick();
 		void Draw();
+		void TileChanged(const vec2i &Location, const Tile &NewTile);
 
     protected:
 };
