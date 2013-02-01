@@ -24,7 +24,7 @@
 1359739224 c:\users\jux\desktop\basicplatformer\object\object.hpp
 	"../Math/Math.hpp"
 
-1359740063 source:c:\users\jux\desktop\basicplatformer\main.cpp
+1359742058 source:c:\users\jux\desktop\basicplatformer\main.cpp
 	<iostream>
 	<SFML/Window.hpp>
 	<GL/GL.h>
@@ -41,7 +41,7 @@
 	"../Entity.hpp"
 	"../../../ResourceManager/ResourceManager.hpp"
 
-1359739224 c:\users\jux\desktop\basicplatformer\object\entity\entity.hpp
+1359741943 c:\users\jux\desktop\basicplatformer\object\entity\entity.hpp
 	"../Object.hpp"
 	"../../ResourceManager/ResourceManager.hpp"
 
@@ -54,10 +54,10 @@
 	"../../../ResourceManager/ResourceManager.hpp"
 	"../../../ResourceManager/SoundManager.hpp"
 
-1359739224 source:c:\users\jux\desktop\basicplatformer\objectmanager\objectmanager.cpp
+1359742953 source:c:\users\jux\desktop\basicplatformer\objectmanager\objectmanager.cpp
 	"ObjectManager.hpp"
 
-1359739224 source:c:\users\jux\desktop\basicplatformer\object\entity\entity.cpp
+1359742346 source:c:\users\jux\desktop\basicplatformer\object\entity\entity.cpp
 	<GL/GL.h>
 	"../../LevelManager/LevelManager.hpp"
 	"../../ResourceManager/SoundManager.hpp"
@@ -79,7 +79,7 @@
 	<map>
 	"../Math/Math.hpp"
 
-1359739224 source:c:\users\jux\desktop\basicplatformer\resourcemanager\resourcemanager.cpp
+1359741888 source:c:\users\jux\desktop\basicplatformer\resourcemanager\resourcemanager.cpp
 	<iostream>
 	<algorithm>
 	<fstream>
@@ -179,16 +179,18 @@
 	<SFML/Audio.hpp>
 	<List>
 
-1359740474 source:c:\users\jux\desktop\basicplatformer\object\entity\tileentity.cpp
+1359742737 source:c:\users\jux\desktop\basicplatformer\object\entity\tileentity.cpp
 	"TileEntity.hpp"
+	<iostream>
 
-1359739224 c:\users\jux\desktop\basicplatformer\object\entity\tileentity.hpp
+1359741328 c:\users\jux\desktop\basicplatformer\object\entity\tileentity.hpp
 	"Entity.hpp"
 	"../../LevelManager/LevelManager.hpp"
 
-1359740614 source:c:\users\jux\desktop\basicplatformer\object\entity\block\mystblock.cpp
+1359742566 source:c:\users\jux\desktop\basicplatformer\object\entity\block\mystblock.cpp
 	"MystBlock.hpp"
+	<iostream>
 
-1359739984 c:\users\jux\desktop\basicplatformer\object\entity\block\mystblock.hpp
+1359741475 c:\users\jux\desktop\basicplatformer\object\entity\block\mystblock.hpp
 	"../TileEntity.hpp"
 

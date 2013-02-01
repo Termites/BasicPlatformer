@@ -1,3 +1,4 @@
+#pragma once
 #include "../TileEntity.hpp"
 
 class MystBlock : public TileEntity {

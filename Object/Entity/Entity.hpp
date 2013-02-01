@@ -5,7 +5,8 @@
 enum PhysicState{
     PHYS_Landed,
     PHYS_Jumping,
-    PHYS_Falling
+    PHYS_Falling,
+    PHYS_None
 };
 
 class Entity : public Object
