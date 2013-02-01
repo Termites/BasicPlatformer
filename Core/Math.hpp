@@ -159,6 +159,6 @@ inline int GetSnappedValue(int x)
 
 inline vec2i SnapToGrid(const vec2i&V)
 {
-    return vec2i(GetSnappedValue(V.x),GetSnappedValue(V.y));
+    return vec2i(GetSnappedValue(V.x)/16,GetSnappedValue(V.y)/16);
 
 }

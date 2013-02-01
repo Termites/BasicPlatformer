@@ -1,11 +1,17 @@
 #pragma once
-
 #include "EntityBase.hpp"
 
 
 class Player : public EntityBase
 {
-	private:
+	protected:
+        float MaxJumpHeight;
+
+        int CamTimer;
+        int CamXOffset;
+
+        sf::SoundBuffer JumpSound;
+        sf::SoundBuffer LandSound;
 
 	public:
 		Player(const vec2f&L);
@@ -14,4 +20,6 @@ class Player : public EntityBase
 		//virtual void Draw();
 
 		virtual ~Player() {}
+
+		virtual void Land();
 };

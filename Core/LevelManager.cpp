@@ -4,29 +4,9 @@
 #include<fstream>
 #include<iostream>
 #include "Resources/GamePath.hpp"
-
-GLuint ConvertToGLTexture(const sf::Image & Image)
-{
-	GLuint TextureID;
-
-	// glGenTextures(int nb textures, GLuint* Tableau)
-	glGenTextures(1,&TextureID);
-	glBindTexture(GL_TEXTURE_2D,TextureID);
-
-	//http://www.opengl.org/sdk/docs/man/xhtml/glTexImage2D.xml
-	glTexImage2D(GL_TEXTURE_2D,0,4,Image.GetWidth(),Image.GetHeight(),0,GL_RGBA,
-	GL_UNSIGNED_BYTE,Image.GetPixelsPtr());
-
-	// Mode d'interpolation des pixels (pour les zooms/dézooms)
-	glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST);
-	glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST);
+#include "Resources/ResourceManager.hpp"
 
 
-	glBindTexture(GL_TEXTURE_2D,0);
-
-	return TextureID;
-
-}
 
 LevelManager::LevelManager()
 {
@@ -48,6 +28,7 @@ LevelManager::~LevelManager()
 
 char LevelManager::GetBlockAt(const vec2i& Location)
 {
+
 	// Au cas où on cherche à accéder à un bloc inexistant :
 	if (Location.x < 0 || Location.y <0 || Location.x>=Size.x || Location.y>=Size.y)
 		return -1;
@@ -96,6 +77,14 @@ void LevelManager::LoadLevel(const std::string&File)
 	// R,G,B :
 
 	Input>>R>>Sep>>G>>Sep>>B;
+	SkyColor[0] = R/255.f;
+	SkyColor[1] = G/255.f;
+	SkyColor[2] = B/255.f;
+	Input>>R>>Sep>>G>>Sep>>B;
+	SkyColor[3] = R/255.f;
+	SkyColor[4] = G/255.f;
+	SkyColor[5] = B/255.f;
+
 	Input>>Size.x>>Sep>>Size.y;
 
 	Tileset = new char*[Size.y];
@@ -121,10 +110,34 @@ void LevelManager::Create()
 void LevelManager::Tick()
 {
     ObjectController.Tick();
+    if (CameraLocation.x <0 )
+        CameraLocation.x = 0;
+
+    if (CameraLocation.y <0 )
+        CameraLocation.y = 0;
+
+    if (CameraLocation.x+320 >= Size.x*16)
+        CameraLocation.x = Size.x*16-320;
+
+    if (CameraLocation.y+240 >= Size.y*16)
+        CameraLocation.y = Size.y*16-240;
 }
 
 void LevelManager::Draw()
 {
+
+    glBegin(GL_QUADS);
+        glColor3fv(SkyColor);
+        glVertex3f(0,0,-99);
+        glVertex3f(320,0,-99);
+        glColor3fv(SkyColor+3);
+        glVertex3f(320,240,-99);
+        glVertex3f(0,240,-99);
+    glEnd();
+
+    glColor3f(1,1,1);
+
+
 	glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D,TilesetTexture);
 
@@ -134,8 +147,8 @@ void LevelManager::Draw()
 		{
 			if (Tileset[i][j]!=0)
 			{
-				vec2i Pos(j*16,i*16);
-
+				vec2f Pos(j*16,i*16);
+                Pos-=CameraLocation;
 				vec2f TPos;
 				// Recalcule les coordonnées dans le tileset :
 				TPos.x = Tileset[i][j]%TilesetWidth;
@@ -148,18 +161,20 @@ void LevelManager::Draw()
 				float w = 1.f/TilesetWidth;
 				float h = 1.f/TilesetHeight;
 
+
+
 				glBegin(GL_QUADS);
 					glTexCoord2f(TPos.x,TPos.y);
-					glVertex3f(Pos.x,Pos.y,0);
+					glVertex3f(Pos.x,Pos.y,-10);
 
 					glTexCoord2f(TPos.x+w,TPos.y);
-					glVertex3f(Pos.x+16,Pos.y,0);
+					glVertex3f(Pos.x+16,Pos.y,-10);
 
 					glTexCoord2f(TPos.x+w,TPos.y+h);
-					glVertex3f(Pos.x+16,Pos.y+16,0);
+					glVertex3f(Pos.x+16,Pos.y+16,-10);
 
 					glTexCoord2f(TPos.x,TPos.y+h);
-					glVertex3f(Pos.x,Pos.y+16,0);
+					glVertex3f(Pos.x,Pos.y+16,-10);
 				glEnd();
 			}
 		}

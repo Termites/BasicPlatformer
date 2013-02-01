@@ -24,6 +24,8 @@ class LevelManager
 
 		ObjectManager ObjectController; // Contrôleur d'objets
 
+		float SkyColor[6];
+
 	public:
 		LevelManager();
 		~LevelManager();
@@ -56,4 +58,6 @@ class LevelManager
 		{
 		    ObjectController.DeleteObject(O);
 		}
+
+		vec2f& GetCameraLocation()  {return CameraLocation;}
 };

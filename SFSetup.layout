@@ -1,16 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="Core\LevelManager.cpp" open="1" top="0" tabpos="4">
-		<Cursor position="2071" topLine="86" />
+	<File name="Core\Entity\EntityBase.cpp" open="1" top="0" tabpos="12">
+		<Cursor position="393" topLine="22" />
 	</File>
-	<File name="Core\LevelManager.hpp" open="1" top="0" tabpos="3">
-		<Cursor position="116" topLine="0" />
+	<File name="Core\Entity\Player.cpp" open="1" top="0" tabpos="14">
+		<Cursor position="0" topLine="0" />
 	</File>
-	<File name="Core\Math.hpp" open="1" top="1" tabpos="2">
-		<Cursor position="2131" topLine="115" />
+	<File name="Core\LevelManager.cpp" open="1" top="1" tabpos="7">
+		<Cursor position="1070" topLine="34" />
 	</File>
-	<File name="Main.cpp" open="1" top="0" tabpos="1">
-		<Cursor position="634" topLine="37" />
+	<File name="Core\LevelManager.hpp" open="1" top="0" tabpos="6">
+		<Cursor position="574" topLine="27" />
+	</File>
+	<File name="Core\Math.hpp" open="1" top="0" tabpos="5">
+		<Cursor position="2712" topLine="139" />
+	</File>
+	<File name="Core\Object.hpp" open="1" top="0" tabpos="13">
+		<Cursor position="97" topLine="0" />
+	</File>
+	<File name="Core\ObjectManager.cpp" open="1" top="0" tabpos="9">
+		<Cursor position="106" topLine="0" />
+	</File>
+	<File name="Core\ObjectManager.hpp" open="1" top="0" tabpos="15">
+		<Cursor position="234" topLine="9" />
+	</File>
+	<File name="Core\Resources\GamePath.cpp" open="1" top="0" tabpos="8">
+		<Cursor position="404" topLine="3" />
+	</File>
+	<File name="Core\Resources\ResourceManager.cpp" open="1" top="0" tabpos="11">
+		<Cursor position="736" topLine="5" />
+	</File>
+	<File name="Core\Resources\ResourceManager.hpp" open="1" top="0" tabpos="10">
+		<Cursor position="320" topLine="1" />
+	</File>
+	<File name="Main.cpp" open="1" top="0" tabpos="4">
+		<Cursor position="1778" topLine="81" />
 	</File>
 </CodeBlocks_layout_file>

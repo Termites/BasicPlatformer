@@ -12,11 +12,13 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
+					<Add option="-std=c++0x" />
 					<Add option="-g" />
 				</Compiler>
 				<Linker>
 					<Add option="-lsfml-graphics-s" />
 					<Add option="-lsfml-window-s" />
+					<Add option="-lsfml-audio-s" />
 					<Add option="-lsfml-system-s" />
 				</Linker>
 			</Target>
@@ -36,9 +38,20 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Core\Entity\EntityBase.cpp" />
+		<Unit filename="Core\Entity\EntityBase.hpp" />
+		<Unit filename="Core\Entity\Player.cpp" />
+		<Unit filename="Core\Entity\Player.hpp" />
 		<Unit filename="Core\LevelManager.cpp" />
 		<Unit filename="Core\LevelManager.hpp" />
 		<Unit filename="Core\Math.hpp" />
+		<Unit filename="Core\Object.hpp" />
+		<Unit filename="Core\ObjectManager.cpp" />
+		<Unit filename="Core\ObjectManager.hpp" />
+		<Unit filename="Core\Resources\GamePath.cpp" />
+		<Unit filename="Core\Resources\GamePath.hpp" />
+		<Unit filename="Core\Resources\ResourceManager.cpp" />
+		<Unit filename="Core\Resources\ResourceManager.hpp" />
 		<Unit filename="Main.cpp" />
 		<Extensions>
 			<code_completion />

@@ -7,6 +7,7 @@
 
 #include "Core/Resources/GamePath.hpp"
 #include "Core/Resources/ResourceManager.hpp"
+#include "Core/SoundManager.hpp"
 
 /*
 	Pour linker la SFML :
@@ -41,7 +42,8 @@ bn,b,+1,...
 
 
 */
-
+ ResourceManager R;
+ SoundManager SM;
 const sf::Input * GlobalInput;
 
 
@@ -83,19 +85,18 @@ int main(int arg_c,char*argv[])
 	InitializeGL(800,600);
 
 	LevelManager L;
-	ResourceManager R;
-	sf::SoundBuffer B = R.LoadSound("MarioJump");
 
-    sf::Sound S;
-    S.SetBuffer(B);
-    S.Play();
+
 
     L.LoadLevel("Level");
-	L.LoadTileset("Tileset");
+	L.LoadTileset("mTileset");
+
+
 
 	L.RegisterObject(new Player(vec2f(0,0)));
 
 	L.Create();
+
 
 	while (App.IsOpened())
 	{
@@ -113,25 +114,38 @@ int main(int arg_c,char*argv[])
 				// Ferme la fenêtre
 				App.Close();
 			}
+			else if (e.Type == sf::Event::Resized)
+            {
+                InitializeGL(App.GetWidth(),App.GetHeight());
+            }
 		}
 
 		L.Tick();
+		SM.Tick();
 
 		// On redessine toute la scène :
 		glClear(GL_DEPTH_BUFFER_BIT|GL_COLOR_BUFFER_BIT);
 		// glClearColor(r,g,b,a)
-		glClearColor(0.5,0.5,0.5,1.0);
+
 
 		glEnable(GL_TEXTURE_2D);
         glEnable(GL_ALPHA_TEST);
-		glAlphaFunc(GL_GREATER,0.5);
+        glEnable(GL_DEPTH_TEST);
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
+		glAlphaFunc(GL_GREATER,0.1);
+		glDepthFunc(GL_LESS);
 
 		L.Draw();
 
+
 		glDisable(GL_TEXTURE_2D);
 		glDisable(GL_ALPHA_TEST);
+		glDisable(GL_DEPTH_TEST);
+		glDisable(GL_BLEND);
 
 		App.Display();
+
 	}
 
 
