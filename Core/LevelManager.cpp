@@ -5,6 +5,7 @@
 #include<iostream>
 #include "Resources/GamePath.hpp"
 #include "Resources/ResourceManager.hpp"
+#include "Debugger.hpp"
 
 LevelManager::LevelManager()
 {
@@ -72,6 +73,10 @@ void LevelManager::LoadTileset(const std::string& File)
 
     std::string mFile = GamePath::Tileset + File + ".info";
     std::ifstream Input(mFile);
+    if (!Input.is_open())
+    {
+
+    }
     char Sep;
 	for (int i=0;i<TilesetHeight*TilesetHeight;++i)
 	{
@@ -167,10 +172,7 @@ void LevelManager::Draw()
 		{
 			if (Tileset[i][j].BlockID!=0)
 			{
-			    if (!Tileset[i][j].bSolid)
-                    glColor3f(0,0,0);
-                else
-                    glColor3f(1,1,1);
+
 				vec2f Pos(j*16,i*16);
                 Pos-=CameraLocation;
 				vec2f TPos;

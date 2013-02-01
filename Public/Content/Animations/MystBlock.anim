@@ -1,0 +1,14 @@
+[idle]
+1
+0,
+1
+
+[activated]
+3
+0,1,2,1,
+0.1
+
+[deactivated]
+1
+3,
+1

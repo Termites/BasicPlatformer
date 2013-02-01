@@ -23,25 +23,6 @@
 		-lsfml-system-s
 */
 
-
-/*
-Niveau : Format ASCII :
-
-R,G,B (Ciel)
-W,H (Taille de la carte)
-b0,b1,b2.. (tous les blocs)
-bn,b,+1,...
-
-
-128,128,128
-4,4
-0,0,0,0,
-0,0,0,0,
-0,0,0,0,
-1,1,1,1,
-
-
-*/
  ResourceManager R;
  SoundManager SM;
 const sf::Input * GlobalInput;
@@ -86,14 +67,12 @@ int main(int arg_c,char*argv[])
 
 	LevelManager L;
 
-
     L.LoadTileset("mTileset");
     L.LoadLevel("Level");
 
 	L.RegisterObject(new Player(vec2f(0,0)));
 
 	L.Create();
-
 
 	while (App.IsOpened())
 	{

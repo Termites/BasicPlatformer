@@ -47,7 +47,7 @@
 1359483941 d:\development\shared\sfsetup\core\entity\player.hpp
 	"EntityBase.hpp"
 
-1359730326 source:d:\development\githubshared\basicplatformer\main.cpp
+1359730932 source:d:\development\githubshared\basicplatformer\main.cpp
 	<SFML/Window.hpp>
 	<GL/GL.h>
 	"Core/Math.hpp"
@@ -81,7 +81,7 @@
 	"../Resources/ResourceManager.hpp"
 	<SFML/Audio.hpp>
 
-1359730399 source:d:\development\githubshared\basicplatformer\core\levelmanager.cpp
+1359732095 source:d:\development\githubshared\basicplatformer\core\levelmanager.cpp
 	"LevelManager.hpp"
 	<SFML/Graphics.hpp>
 	<GL/GL.h>
@@ -89,8 +89,9 @@
 	<iostream>
 	"Resources/GamePath.hpp"
 	"Resources/ResourceManager.hpp"
+	"Debugger.hpp"
 
-1359730031 source:d:\development\githubshared\basicplatformer\core\entity\player.cpp
+1359732600 source:d:\development\githubshared\basicplatformer\core\entity\player.cpp
 	<SFML/Window.hpp>
 	"Player.hpp"
 	"../LevelManager.hpp"
@@ -133,4 +134,9 @@
 1359678313 d:\development\githubshared\basicplatformer\core\soundmanager.hpp
 	<SFML/Audio.hpp>
 	<List>
+
+1359732034 d:\development\githubshared\basicplatformer\core\debugger.hpp
+	<iostream>
+	<ostream>
+	<cstdlib>
 

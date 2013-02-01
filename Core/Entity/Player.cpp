@@ -95,7 +95,7 @@ void Player::Tick()
     vec2f & C = Level->GetCameraLocation();
 
 
-    if ( (Direction<0 && Location.x < C.x ) ||  (Direction>0 && Location.x+16 > C.x + 320))
+    if ( (Direction<0 && Location.x+Velocity.x < C.x ) ||  (Direction>0 && Location.x+Velocity.x+16 > C.x + 320))
     {
         Velocity.x = 0;
         Acceleration.x=0;
