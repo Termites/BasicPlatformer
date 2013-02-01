@@ -8,6 +8,8 @@ TileEntity::TileEntity(const vec2i&Location) : EntityBase(vec2i())
     this->Location = TileLocation*16;
     this->GridLocation = Location;
     this->GridLocationExt = Location;
+
+    Physic = PHYS_None;
 }
 
 void TileEntity::Create()

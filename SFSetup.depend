@@ -77,7 +77,7 @@
 1359721279 d:\development\githubshared\basicplatformer\core\entity\player.hpp
 	"EntityBase.hpp"
 
-1359713307 d:\development\githubshared\basicplatformer\core\entity\entitybase.hpp
+1359737620 d:\development\githubshared\basicplatformer\core\entity\entitybase.hpp
 	"../Object.hpp"
 	"../Math.hpp"
 	"../Resources/ResourceManager.hpp"
@@ -142,11 +142,12 @@
 	<ostream>
 	<cstdlib>
 
-1359737168 source:d:\development\githubshared\basicplatformer\core\entity\tileentity.cpp
+1359737640 source:d:\development\githubshared\basicplatformer\core\entity\tileentity.cpp
 	"TileEntity.hpp"
 	"../LevelManager.hpp"
+	<iostream>
 
-1359737330 d:\development\githubshared\basicplatformer\core\entity\tileentity.hpp
+1359737630 d:\development\githubshared\basicplatformer\core\entity\tileentity.hpp
 	"EntityBase.hpp"
 	"../LevelManager.hpp"
 

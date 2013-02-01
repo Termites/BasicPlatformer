@@ -15,5 +15,7 @@ void MysteriousBlock::OnTileChangement(const Tile&New)
 {
 	//if (Activated==false)
 	PlayAnimation("activated");
+	Physic = PHYS_Falling;
+	Velocity.y=-8;
 }
 

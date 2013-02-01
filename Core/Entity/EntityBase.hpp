@@ -8,6 +8,7 @@
 
 enum PhysicState
 {
+    PHYS_None,
     PHYS_Landed,
     PHYS_Jumping,
     PHYS_Falling

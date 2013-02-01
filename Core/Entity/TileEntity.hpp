@@ -20,5 +20,4 @@ class TileEntity : public EntityBase
 
 		virtual ~TileEntity() {}
 
-		virtual void Tick() {UpdateAnimation();}
 };
