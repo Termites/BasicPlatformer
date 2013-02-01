@@ -1,10 +1,10 @@
 #include "../TileEntity.hpp"
 
-class MystBlock : public Entity {
+class MystBlock : public TileEntity {
     private:
 
     public:
-        MystBlock(const vec2f &Location);
+        MystBlock(const vec2i &Location);
         void OnTileChangement(const Tile &New);
 
     protected:

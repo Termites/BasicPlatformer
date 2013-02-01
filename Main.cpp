@@ -35,7 +35,7 @@ int main(int arg_c,char*argv[]){
     L.LoadTileset("Tileset1");
     L.LoadLevel("1");
 	L.RegisterObject(new Fario(vec2f(16*1,16*11)));
-	L.RegisterObject(new MystBlock(vec2i(0,0)));
+	L.RegisterObject(new MystBlock(vec2i(3,9)));
 	L.Create();
 	while(App.IsOpened()){
 		sf::Event e;

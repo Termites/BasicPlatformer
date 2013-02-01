@@ -1,13 +1,12 @@
 #include "MystBlock.hpp"
-#include <iostream>
 
-MystBlock::MystBlock(const vec2f &Location){
-    Tile T;
-    T.BlockID=8;
-    T.bSolid=true;
-    TileEntity TE(Location);
+extern ResourceManager R;
+
+MystBlock::MystBlock(const vec2i &Location) : TileEntity(Location){
+    Spr=R.LoadSprite("MystBlock",vec2i(16,16));
+    //Anims=R.LoadAnim("MystBlock");
+    //PlayAnim("idle");
+    Activated=false;
 }
 
-void MystBlock::OnTileChangement(const Tile &New){
-    Level->SetBlockAt(Location,New);
-}
+void MystBlock::OnTileChangement(const Tile &New){}

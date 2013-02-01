@@ -1,6 +1,6 @@
 #include "TileEntity.hpp"
 
-TileEntity::TileEntity(const vec2i &Location){
+TileEntity::TileEntity(const vec2i &Location) : Entity(vec2i()){
     Entity(Location*16);
     TileLocation=Location;
 }
