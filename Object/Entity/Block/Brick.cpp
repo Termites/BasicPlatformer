@@ -14,10 +14,10 @@ Brick::Brick(const vec2i &Location) : TileEntity(Location){
 void Brick::OnTileChangement(const Tile &New){
     Level->SetBlockAt(TileLocation,Tile(0,false));
     if(!Broken){
-        Level->RegisterObject(new Bricks(vec2i(3,8)));
-        Level->RegisterObject(new Bricks(vec2i(3,10)));
-        Level->RegisterObject(new Bricks(vec2i(5,8)));
-        Level->RegisterObject(new Bricks(vec2i(5,10)));
+        Level->RegisterObject(new Bricks(this->GridLocation,vec2f(-2,-4)));
+        Level->RegisterObject(new Bricks(this->GridLocation,vec2f(2,-4)));
+        Level->RegisterObject(new Bricks(this->GridLocation,vec2f(-2,-8)));
+        Level->RegisterObject(new Bricks(this->GridLocation,vec2f(2,-8)));
         Level->DeleteObject(this);
         Broken=true;
     }

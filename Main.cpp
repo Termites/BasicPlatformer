@@ -129,7 +129,7 @@ int main(int arg_c,char*argv[]){
 		glAlphaFunc(GL_GREATER,0.5);
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
-		glUseProgram(S.Prog);
+		//glUseProgram(S.Prog);
 		L.Draw();
         glUseProgram(0);
 		glDisable(GL_ALPHA_TEST);
