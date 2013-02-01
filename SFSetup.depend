@@ -57,7 +57,7 @@
 	"Core/Resources/ResourceManager.hpp"
 	"Core/SoundManager.hpp"
 
-1359671817 d:\development\githubshared\basicplatformer\core\math.hpp
+1359734970 d:\development\githubshared\basicplatformer\core\math.hpp
 	<cmath>
 
 1359730292 d:\development\githubshared\basicplatformer\core\levelmanager.hpp
@@ -66,11 +66,12 @@
 	<string>
 	"ObjectManager.hpp"
 
-1359479727 d:\development\githubshared\basicplatformer\core\objectmanager.hpp
+1359734459 d:\development\githubshared\basicplatformer\core\objectmanager.hpp
 	"Object.hpp"
 	<list>
 
-1359479917 d:\development\githubshared\basicplatformer\core\object.hpp
+1359734473 d:\development\githubshared\basicplatformer\core\object.hpp
+	"Math.hpp"
 
 1359721279 d:\development\githubshared\basicplatformer\core\entity\player.hpp
 	"EntityBase.hpp"
@@ -81,7 +82,7 @@
 	"../Resources/ResourceManager.hpp"
 	<SFML/Audio.hpp>
 
-1359732095 source:d:\development\githubshared\basicplatformer\core\levelmanager.cpp
+1359734339 source:d:\development\githubshared\basicplatformer\core\levelmanager.cpp
 	"LevelManager.hpp"
 	<SFML/Graphics.hpp>
 	<GL/GL.h>
@@ -97,7 +98,7 @@
 	"../LevelManager.hpp"
 	"../SoundManager.hpp"
 
-1359479839 source:d:\development\githubshared\basicplatformer\core\objectmanager.cpp
+1359734416 source:d:\development\githubshared\basicplatformer\core\objectmanager.cpp
 	"ObjectManager.hpp"
 
 1359569262 source:d:\development\githubshared\basicplatformer\core\resources\gamepath.cpp

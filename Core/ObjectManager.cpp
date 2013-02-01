@@ -50,6 +50,15 @@ void ObjectManager::Tick()
 	}
 }
 
+void ObjectManager::TileChanged(const vec2i&Location,const Tile&T)
+{
+  	for (auto it = CurrentObjectList.begin();it!=CurrentObjectList.end();++it)
+	{
+		Object * O = *it;
+		O->TileChanged(Location,T);
+	}
+}
+
 void ObjectManager::Draw()
 {
 	for (auto it = CurrentObjectList.begin();it!=CurrentObjectList.end();++it)

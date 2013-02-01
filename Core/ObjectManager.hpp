@@ -3,6 +3,8 @@
 #include "Object.hpp"
 #include <list>
 
+struct Tile;
+
 // Pour éviter d'écrire à chaque fois std::list<Object*>
 typedef std::list<Object*> ObjectList;
 
@@ -38,5 +40,8 @@ class ObjectManager
 
 		// Dessine tous les objets
 		void Draw();
+
+		// Lorsqu'un tile a été changé pendant le jeu, on le précise :
+		void TileChanged(const vec2i&Location,const Tile&NewTile);
 
 };

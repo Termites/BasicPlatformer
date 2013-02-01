@@ -1,8 +1,11 @@
 #pragma once
 
+#include "Math.hpp"
 // Ici on défini le prototype de LevelManager,
 // mais pas ce qu'il contient.
 class LevelManager;
+
+struct Tile;
 
 class Object
 {
@@ -19,5 +22,5 @@ class Object
 			Level = L;
 		}
 
-		virtual void TileChanged(const vec2i&Loc);
+		virtual void TileChanged(const vec2i&Loc,const Tile&T) {}
 };

@@ -52,6 +52,8 @@ void LevelManager::SetBlockAt(const vec2i& Location, const Tile&T)
 		return;
 
 	Tileset[Location.y][Location.x] = T;
+
+	ObjectController.TileChanged(Location,T);
 }
 
 void LevelManager::LoadTileset(const std::string& File)

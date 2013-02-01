@@ -137,6 +137,12 @@ Vector2D<T> & operator/= (Vector2D<T> & A,const T2&B)
     return A;
 }
 
+template<typename T,typename T2>
+bool operator== (const Vector2D<T> & A,const T2&B)
+{
+    return A.x==B.x && A.y==B.y;
+}
+
 typedef Vector2D<float> vec2f;
 typedef Vector2D<int> vec2i;
 
