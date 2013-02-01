@@ -1,6 +1,4 @@
 #include "TileEntity.hpp"
-#include <iostream>
-
 
 TileEntity::TileEntity(const vec2i &Location) : Entity(vec2i()){
     Entity(Location*16);
@@ -13,7 +11,9 @@ void TileEntity::Create(){
 }
 
 void TileEntity::TileChanged(const vec2i &Location, const Tile &NewTile){
-    if(Location==TileLocation && NewTile.bSolid==false) OnTileChangement(NewTile);
+    if(Location==TileLocation && NewTile.bSolid==false && NewTile.BlockID==1){
+        OnTileChangement(NewTile);
+    }
 }
 
 TileEntity::~TileEntity(){}

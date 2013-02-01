@@ -24,6 +24,7 @@ class Entity : public Object
 		virtual void UpdateAnim();
 		virtual void PlayAnim(const std::string &S);
 		virtual void HitAbove(){}
+		virtual void OnAnimEnd(){}
 
     protected :
         vec2f Location;
@@ -44,4 +45,5 @@ class Entity : public Object
         int Direction;
         vec2i SpriteOffset;
         vec2i GridLocationExt;
+        bool bEnableLevelCollision;
 };

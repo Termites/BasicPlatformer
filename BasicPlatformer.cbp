@@ -12,13 +12,16 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
+					<Add option="-std=c++0x" />
 					<Add option="-g" />
+					<Add option="-DGLEW_STATIC" />
 				</Compiler>
 				<Linker>
 					<Add option="-lsfml-graphics-s" />
 					<Add option="-lsfml-audio-s" />
 					<Add option="-lsfml-window-s" />
 					<Add option="-lsfml-system-s" />
+					<Add option="-lglew32s" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -29,6 +32,7 @@
 				<Compiler>
 					<Add option="-O2" />
 					<Add option="-std=c++0x" />
+					<Add option="-DGLEW_STATIC" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -36,6 +40,7 @@
 					<Add option="-lsfml-audio-s" />
 					<Add option="-lsfml-window-s" />
 					<Add option="-lsfml-system-s" />
+					<Add option="-lglew32s" />
 				</Linker>
 			</Target>
 		</Build>
@@ -54,6 +59,10 @@
 		<Unit filename="Math/Math.hpp" />
 		<Unit filename="ObjectManager/ObjectManager.cpp" />
 		<Unit filename="ObjectManager/ObjectManager.hpp" />
+		<Unit filename="Object/Entity/Block/Brick.cpp" />
+		<Unit filename="Object/Entity/Block/Brick.hpp" />
+		<Unit filename="Object/Entity/Block/Bricks.cpp" />
+		<Unit filename="Object/Entity/Block/Bricks.hpp" />
 		<Unit filename="Object/Entity/Block/MystBlock.cpp" />
 		<Unit filename="Object/Entity/Block/MystBlock.hpp" />
 		<Unit filename="Object/Entity/Entity.cpp" />

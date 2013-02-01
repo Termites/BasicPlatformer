@@ -1,0 +1,10 @@
+uniform sampler2D Sprite;
+varying vec2 UV;
+
+void main(){
+	 vec4 FinalColor=texture2D(Sprite,UV)*gl_Color;
+	 FinalColor.x=1.0-FinalColor.x;
+	 FinalColor.y=1.0-FinalColor.y;
+	 FinalColor.z=1.0-FinalColor.z;
+	 gl_FragColor=FinalColor;
+}

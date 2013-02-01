@@ -1,7 +1,5 @@
-#include <iostream>
-#define debug(a) std::cout << a << std::endl
+#include<GL/GLEW.h>
 #include<SFML/Graphics.hpp>
-#include<GL/GL.h>
 #include<fstream>
 #include "LevelManager.hpp"
 #include "../ResourceManager/GamePath.hpp"

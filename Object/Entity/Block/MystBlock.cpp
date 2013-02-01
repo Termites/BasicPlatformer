@@ -11,6 +11,24 @@ MystBlock::MystBlock(const vec2i &Location) : TileEntity(Location){
 }
 
 void MystBlock::OnTileChangement(const Tile &New){
-    PlayAnim("activated");
-    Activated=true;
+    Level->SetBlockAt(TileLocation,Tile(0,true));
+    if(!Activated){
+        PlayAnim("activated");
+        Physic=PHYS_Falling;
+        Velocity.y=-3;
+        Activated=true;
+    }
+}
+
+void MystBlock::OnAnimEnd(){
+    if(Activated) PlayAnim("deactivated");
+}
+
+void MystBlock::Tick(){
+    if(Activated && Velocity.y>0 && Location.y+Velocity.y>=TileLocation.y*16){
+        Physic=PHYS_None;
+        Location.y=TileLocation.y*16;
+        Velocity.y=0;
+    }
+    TileEntity::Tick();
 }

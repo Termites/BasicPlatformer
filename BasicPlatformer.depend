@@ -1,15 +1,14 @@
 # depslib dependency file v1.0
-1359739224 source:c:\users\jux\desktop\basicplatformer\levelmanager\levelmanager.cpp
-	<iostream>
+1359756129 source:c:\users\jux\desktop\basicplatformer\levelmanager\levelmanager.cpp
+	<GL/GLEW.h>
 	<SFML/Graphics.hpp>
-	<GL/GL.h>
 	<fstream>
 	"LevelManager.hpp"
 	"../ResourceManager/GamePath.hpp"
 	"../ResourceManager/ResourceManager.hpp"
 
-1359739224 c:\users\jux\desktop\basicplatformer\levelmanager\levelmanager.hpp
-	<GL/GL.h>
+1359756177 c:\users\jux\desktop\basicplatformer\levelmanager\levelmanager.hpp
+	<GL/GLEW.h>
 	<string>
 	"../Math/Math.hpp"
 	"../ObjectManager/ObjectManager.hpp"
@@ -24,15 +23,17 @@
 1359739224 c:\users\jux\desktop\basicplatformer\object\object.hpp
 	"../Math/Math.hpp"
 
-1359742058 source:c:\users\jux\desktop\basicplatformer\main.cpp
-	<iostream>
+1359761135 source:c:\users\jux\desktop\basicplatformer\main.cpp
+	<GL/GLEW.h>
 	<SFML/Window.hpp>
-	<GL/GL.h>
+	<iostream>
+	<fstream>
 	"Math/Math.hpp"
 	"LevelManager/LevelManager.hpp"
 	"Object/Object.hpp"
 	"Object/Entity/Player/Fario/Fario.hpp"
 	"Object/Entity/Block/MystBlock.hpp"
+	"Object/Entity/Block/Brick.hpp"
 	"ResourceManager/GamePath.hpp"
 	"ResourceManager/ResourceManager.hpp"
 	"ResourceManager/SoundManager.hpp"
@@ -41,24 +42,22 @@
 	"../Entity.hpp"
 	"../../../ResourceManager/ResourceManager.hpp"
 
-1359743690 c:\users\jux\desktop\basicplatformer\object\entity\entity.hpp
+1359752568 c:\users\jux\desktop\basicplatformer\object\entity\entity.hpp
 	"../Object.hpp"
 	"../../ResourceManager/ResourceManager.hpp"
 
-1359743803 source:c:\users\jux\desktop\basicplatformer\object\entity\player\player.cpp
-	<iostream>
-	<SFML/Window.hpp>
+1359756597 source:c:\users\jux\desktop\basicplatformer\object\entity\player\player.cpp
 	<SFML/Audio.hpp>
 	"Player.hpp"
 	"../../../LevelManager/LevelManager.hpp"
 	"../../../ResourceManager/ResourceManager.hpp"
+	<SFML/Window.hpp>
 	"../../../ResourceManager/SoundManager.hpp"
 
 1359742953 source:c:\users\jux\desktop\basicplatformer\objectmanager\objectmanager.cpp
 	"ObjectManager.hpp"
 
-1359743580 source:c:\users\jux\desktop\basicplatformer\object\entity\entity.cpp
-	<GL/GL.h>
+1359756470 source:c:\users\jux\desktop\basicplatformer\object\entity\entity.cpp
 	"../../LevelManager/LevelManager.hpp"
 	"../../ResourceManager/SoundManager.hpp"
 	"Entity.hpp"
@@ -69,18 +68,17 @@
 1359739224 c:\users\jux\desktop\basicplatformer\resourcemanager\gamepath.hpp
 	<string>
 
-1359739224 c:\users\jux\desktop\basicplatformer\resourcemanager\resourcemanager.hpp
+1359756279 c:\users\jux\desktop\basicplatformer\resourcemanager\resourcemanager.hpp
+	<GL/GLEW.h>
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
-	<GL/GL.h>
 	<algorithm>
 	<string>
 	<list>
 	<map>
 	"../Math/Math.hpp"
 
-1359741888 source:c:\users\jux\desktop\basicplatformer\resourcemanager\resourcemanager.cpp
-	<iostream>
+1359744729 source:c:\users\jux\desktop\basicplatformer\resourcemanager\resourcemanager.cpp
 	<algorithm>
 	<fstream>
 	"ResourceManager.hpp"
@@ -179,17 +177,29 @@
 	<SFML/Audio.hpp>
 	<List>
 
-1359743842 source:c:\users\jux\desktop\basicplatformer\object\entity\tileentity.cpp
+1359754977 source:c:\users\jux\desktop\basicplatformer\object\entity\tileentity.cpp
 	"TileEntity.hpp"
-	<iostream>
 
-1359741328 c:\users\jux\desktop\basicplatformer\object\entity\tileentity.hpp
+1359751921 c:\users\jux\desktop\basicplatformer\object\entity\tileentity.hpp
 	"Entity.hpp"
 	"../../LevelManager/LevelManager.hpp"
 
-1359743810 source:c:\users\jux\desktop\basicplatformer\object\entity\block\mystblock.cpp
+1359755812 source:c:\users\jux\desktop\basicplatformer\object\entity\block\mystblock.cpp
 	"MystBlock.hpp"
 
-1359741475 c:\users\jux\desktop\basicplatformer\object\entity\block\mystblock.hpp
+1359752352 c:\users\jux\desktop\basicplatformer\object\entity\block\mystblock.hpp
 	"../TileEntity.hpp"
+
+1359755228 source:c:\users\jux\desktop\basicplatformer\object\entity\block\bricks.cpp
+	"Bricks.hpp"
+
+1359753908 c:\users\jux\desktop\basicplatformer\object\entity\block\bricks.hpp
+	"../TileEntity.hpp"
+
+1359753843 c:\users\jux\desktop\basicplatformer\object\entity\block\brick.hpp
+	"../TileEntity.hpp"
+
+1359758871 source:c:\users\jux\desktop\basicplatformer\object\entity\block\brick.cpp
+	"Bricks.hpp"
+	"Brick.hpp"
 

@@ -1,10 +1,8 @@
-#include <iostream>
-#define debug(a) std::cout << a << std::endl
-#include <SFML/Window.hpp>
 #include <SFML/Audio.hpp>
 #include "Player.hpp"
 #include "../../../LevelManager/LevelManager.hpp"
 #include "../../../ResourceManager/ResourceManager.hpp"
+#include <SFML/Window.hpp>
 #include "../../../ResourceManager/SoundManager.hpp"
 
 extern const sf::Input *GlobalInput;
@@ -47,7 +45,7 @@ void Player::Tick(){
     }
     if(GlobalInput->IsKeyDown(sf::Key::Space) && Physic==PHYS_Landed){
         MaxHeight=Location.y-42;
-    	Velocity.y=-5;
+    	Velocity.y-=5;
         Physic=PHYS_Jumping;
         PlayAnim("jump");
         SM.PlaySound(JumpSound,false);
@@ -72,6 +70,6 @@ void Player::Tick(){
 }
 
 void Player::HitAbove(){
-    Level->SetBlockAt(GridLocation+vec2i(0,-1),Tile(0,false));
+    if(Level->GetBlockAt(GridLocation+vec2i(0,-1)).BlockID==1) Level->SetBlockAt(GridLocation+vec2i(0,-1),Tile(1,false));
     SM.PlaySound(DestroySound,false);
 }

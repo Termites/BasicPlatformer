@@ -1,7 +1,7 @@
 #pragma once
+#include <GL/GLEW.h>
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
-#include <GL/GL.h>
 #include <algorithm>
 #include <string>
 #include <list>

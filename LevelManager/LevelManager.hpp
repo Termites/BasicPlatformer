@@ -1,5 +1,5 @@
 #pragma once
-#include <GL/GL.h>
+#include <GL/GLEW.h>
 #include <string>
 #include "../Math/Math.hpp"
 #include "../ObjectManager/ObjectManager.hpp"

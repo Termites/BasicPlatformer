@@ -1,4 +1,3 @@
-#include <GL/GL.h>
 #include "../../LevelManager/LevelManager.hpp"
 #include "../../ResourceManager/SoundManager.hpp"
 #include "Entity.hpp"
@@ -42,22 +41,22 @@ void Entity::Tick(){
 	GridLocationExt=SnapToGrid(Location + Velocity);
 	GridLocationExt.x=GridLocation.x;
 	GridLocationExt.y--;
-	if(Physic!=PHYS_Landed && Velocity.y>=0){
+	if(bEnableLevelCollision && Physic!=PHYS_Landed && Velocity.y>=0){
 		if(Level->GetBlockAt(GridLocation).bSolid  && Location.y+Velocity.y>=GridLocation.y*16 ){
 			Velocity.y=0;
 			Location.y=GridLocation.y*16;
 			Physic=PHYS_Landed;
 		}
 	}
-	if(Physic!=PHYS_Landed && Velocity.y<0){
+	if(bEnableLevelCollision && Physic!=PHYS_Landed && Velocity.y<0){
 	    if(Level->GetBlockAt(GridLocation+vec2i(0,-1)).bSolid){
             HitAbove();
 	        Physic=PHYS_Falling;
 	        Velocity.y=0;
 	    }
 	}
-	if(Physic==PHYS_Landed && (!Level->GetBlockAt(GridLocation).bSolid) && Location.x>GridLocation.x*16 && Location.x<GridLocation.x*16+16) Physic=PHYS_Falling;
-	if(Velocity.x!=0){
+	if(bEnableLevelCollision && Physic==PHYS_Landed && (!Level->GetBlockAt(GridLocation).bSolid) && Location.x>GridLocation.x*16 && Location.x<GridLocation.x*16+16) Physic=PHYS_Falling;
+	if(bEnableLevelCollision && Velocity.x!=0){
 		int S=Velocity.x<0?-1:1;
 		for(int i=0; i<Height; i++){
 			if(Level->GetBlockAt(GridLocationExt+vec2i(S,-i)).bSolid){
@@ -103,7 +102,10 @@ void Entity::WireDraw(){
 void Entity::UpdateAnim(){
     if(CurrentAnim!=NULL){
         FrameIndex+=CurrentAnim->FrameRate;
-        if(int(FrameIndex)>=CurrentAnim->FramesCount) FrameIndex=0;
+        if(int(FrameIndex)>=CurrentAnim->FramesCount){
+            FrameIndex=0;
+            OnAnimEnd();
+        }
     }
 }
 
