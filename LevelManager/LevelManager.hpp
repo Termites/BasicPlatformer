@@ -28,6 +28,7 @@ class LevelManager{
 		void RegisterObject(Object *O);
 		void DeleteObject(Object *O);
 		int GetSizeX();
+		vec2f &GetCameraLocation(){return CameraLocation;}
 
     protected:
 };

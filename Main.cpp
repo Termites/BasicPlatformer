@@ -7,9 +7,11 @@
 #include "Object/Entity/Player/Fario/Fario.hpp"
 #include "ResourceManager/GamePath.hpp"
 #include "ResourceManager/ResourceManager.hpp"
+#include "ResourceManager/SoundManager.hpp"
 
 const sf::Input *GlobalInput;
 ResourceManager R;
+SoundManager SM;
 
 void InitializeGL(int W,int H){
 	glViewport(0,0,W,H);
@@ -29,10 +31,6 @@ int main(int arg_c,char*argv[]){
 	LevelManager L;
     GamePath::Root="C:\\Users\\JUX\\Desktop\\BasicPlatformer"; // GamePath::Root="C:\\Users\\JUX\\Desktop\\BasicPlatformer\\";
     GamePath::GeneratePath();
-    sf::SoundBuffer &B=R.LoadSound("MarioJump");
-	sf::Sound S;
-	S.SetBuffer(B);
-	S.Play();
     L.LoadLevel("1");
 	L.LoadTileset("1");
 	L.RegisterObject(new Fario(vec2f(16*1,16*11)));

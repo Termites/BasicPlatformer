@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1359662316 source:c:\users\jux\desktop\basicplatformer\levelmanager\levelmanager.cpp
+1359678809 source:c:\users\jux\desktop\basicplatformer\levelmanager\levelmanager.cpp
 	<SFML/Graphics.hpp>
 	<GL/GL.h>
 	<fstream>
@@ -7,13 +7,13 @@
 	"../ResourceManager/GamePath.hpp"
 	"../ResourceManager/ResourceManager.hpp"
 
-1359662316 c:\users\jux\desktop\basicplatformer\levelmanager\levelmanager.hpp
+1359672542 c:\users\jux\desktop\basicplatformer\levelmanager\levelmanager.hpp
 	<GL/GL.h>
 	<string>
 	"../Math/Math.hpp"
 	"../ObjectManager/ObjectManager.hpp"
 
-1359555459 c:\users\jux\desktop\basicplatformer\math\math.hpp
+1359671935 c:\users\jux\desktop\basicplatformer\math\math.hpp
 	<cmath>
 
 1359563144 c:\users\jux\desktop\basicplatformer\objectmanager\objectmanager.hpp
@@ -23,7 +23,7 @@
 1359507533 c:\users\jux\desktop\basicplatformer\object\object.hpp
 	"../Math/Math.hpp"
 
-1359663390 source:c:\users\jux\desktop\basicplatformer\main.cpp
+1359678822 source:c:\users\jux\desktop\basicplatformer\main.cpp
 	<iostream>
 	<SFML/Window.hpp>
 	<GL/GL.h>
@@ -33,25 +33,29 @@
 	"Object/Entity/Player/Fario/Fario.hpp"
 	"ResourceManager/GamePath.hpp"
 	"ResourceManager/ResourceManager.hpp"
+	"ResourceManager/SoundManager.hpp"
 
-1359663509 c:\users\jux\desktop\basicplatformer\object\entity\player\player.hpp
+1359679706 c:\users\jux\desktop\basicplatformer\object\entity\player\player.hpp
 	"../Entity.hpp"
+	"../../../ResourceManager/ResourceManager.hpp"
 
-1359666561 c:\users\jux\desktop\basicplatformer\object\entity\entity.hpp
+1359673933 c:\users\jux\desktop\basicplatformer\object\entity\entity.hpp
 	"../Object.hpp"
 	"../../ResourceManager/ResourceManager.hpp"
 
-1359668026 source:c:\users\jux\desktop\basicplatformer\object\entity\player\player.cpp
+1359679636 source:c:\users\jux\desktop\basicplatformer\object\entity\player\player.cpp
 	<iostream>
 	<SFML/Window.hpp>
+	<SFML/Audio.hpp>
 	"Player.hpp"
 	"../../../LevelManager/LevelManager.hpp"
 	"../../../ResourceManager/ResourceManager.hpp"
+	"../../../ResourceManager/SoundManager.hpp"
 
 1359563360 source:c:\users\jux\desktop\basicplatformer\objectmanager\objectmanager.cpp
 	"ObjectManager.hpp"
 
-1359665585 source:c:\users\jux\desktop\basicplatformer\object\entity\entity.cpp
+1359677224 source:c:\users\jux\desktop\basicplatformer\object\entity\entity.cpp
 	<GL/GL.h>
 	"../../LevelManager/LevelManager.hpp"
 	"Entity.hpp"
@@ -72,7 +76,7 @@
 	<map>
 	"../Math/Math.hpp"
 
-1359666016 source:c:\users\jux\desktop\basicplatformer\resourcemanager\resourcemanager.cpp
+1359673634 source:c:\users\jux\desktop\basicplatformer\resourcemanager\resourcemanager.cpp
 	<iostream>
 	<algorithm>
 	<fstream>
@@ -161,6 +165,14 @@
 1359654173 c:\users\vedia\documents\github\basicplatformer\object\entity\player\fario\fario.hpp
 	"../Player.hpp"
 
-1359665095 c:\users\jux\desktop\basicplatformer\object\entity\player\fario\fario.hpp
+1359679521 c:\users\jux\desktop\basicplatformer\object\entity\player\fario\fario.hpp
 	"../Player.hpp"
+
+1359678917 source:c:\users\jux\desktop\basicplatformer\resourcemanager\soundmanager.cpp
+	<SFML/Audio.hpp>
+	"SoundManager.hpp"
+
+1359678545 c:\users\jux\desktop\basicplatformer\resourcemanager\soundmanager.hpp
+	<SFML/Audio.hpp>
+	<List>
 

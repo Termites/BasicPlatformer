@@ -1,16 +1,20 @@
 #include <iostream>
 #define debug(a,b) std::cout << a << " " << b << std::endl
 #include <SFML/Window.hpp>
+#include <SFML/Audio.hpp>
 #include "Player.hpp"
 #include "../../../LevelManager/LevelManager.hpp"
 #include "../../../ResourceManager/ResourceManager.hpp"
+#include "../../../ResourceManager/SoundManager.hpp"
 
 extern const sf::Input *GlobalInput;
 extern ResourceManager R;
-
-Player::Player(const vec2f &Location) : Entity(Location){}
+extern SoundManager SM;
 
 void Player::Tick(){
+    vec2f &C=Level->GetCameraLocation();
+    C.x=Location.x-160;
+    C.y=Location.y-224;
     if(GlobalInput->IsKeyDown(sf::Key::Left) || GlobalInput->IsKeyDown(sf::Key::Right)){
         if(GlobalInput->IsKeyDown(sf::Key::Left)){
             Velocity.x-=0.5;
@@ -20,21 +24,30 @@ void Player::Tick(){
             Velocity.x+=0.5;
             Direction=1;
         }
+        PlayAnim("walk");
     }
     else{
         if(Velocity.x>0) Velocity.x-=0.3;
         if(Velocity.x<0) Velocity.x+=0.3;
-        if(Velocity.x<0.3 && Velocity.x>-0.3) Velocity.x=0;
+        if(Velocity.x<0.3 && Velocity.x>-0.3){
+            Velocity.x=0;
+            PlayAnim("idle");
+        }
     }
     if(GlobalInput->IsKeyDown(sf::Key::Left) && GlobalInput->IsKeyDown(sf::Key::Right)){
         if(Velocity.x>0) Velocity.x-=0.3;
         if(Velocity.x<0) Velocity.x+=0.3;
-        if(Velocity.x<0.3 && Velocity.x>-0.3) Velocity.x=0;
+        if(Velocity.x<0.3 && Velocity.x>-0.3){
+            Velocity.x=0;
+            PlayAnim("idle");
+        }
     }
     if(GlobalInput->IsKeyDown(sf::Key::Space) && Physic==PHYS_Landed){
         MaxHeight=Location.y-42;
     	Velocity.y=-5;
         Physic=PHYS_Jumping;
+        PlayAnim("jump");
+        SM.PlaySound(JumpSound,false);
     }
     if (!GlobalInput->IsKeyDown(sf::Key::Space) || (Physic==PHYS_Jumping && (Location.y<MaxHeight))) Physic=PHYS_Falling;
     if (Velocity.x<0 && GridLocation.x<=0 && Location.x+Velocity.x<=0){
@@ -46,16 +59,5 @@ void Player::Tick(){
         Location.x=GridLocation.x*16;
     }
     Entity::Tick();
-}
-
-void Player::Draw(){
-    std::map<std::string,Anim>::iterator it;
-    Entity::WireDraw();
-    if(Physic==PHYS_Landed && Velocity.x==0) it=Anims.find("idle");
-    if(Physic==PHYS_Landed && Velocity.x!=0) it=Anims.find("walk");
-    if(Physic==PHYS_Jumping || Physic==PHYS_Falling) it=Anims.find("jump");
-    FrameIndex+=1/(*it).second.FrameRate;
-    if(FrameIndex>=(*it).second.FramesCount) FrameIndex=0;
-    int Frame=(*it).second.Frames[(int)FrameIndex];
-    R.DrawSprite(Spr,Location,Frame,vec2f(Direction,1));
+    WireDraw();
 }

@@ -60,16 +60,31 @@ void LevelManager::Create(){
 
 void LevelManager::Tick(){
     ObjectController.Tick();
+    if(CameraLocation.x<0) CameraLocation.x=0;
+    if(CameraLocation.y<0) CameraLocation.y=0;
+    if(CameraLocation.x+320>=Size.x*16) CameraLocation.x=Size.x*16-320;
+    if(CameraLocation.y+240>=Size.y*16) CameraLocation.y=Size.y*16-240;
 }
 
 void LevelManager::Draw(){
-    glClearColor(R,G,B,1.0);
-	glEnable(GL_TEXTURE_2D);
+	glBegin(GL_QUADS);
+        glColor3f(R+0.5,G+0.5,B+0.5);
+        glVertex3f(0,0,-99);
+        glColor3f(R+0.5,G+0.5,B+0.5);
+        glVertex3f(320,0,-99);
+        glColor3f(R,G,B);
+        glVertex3f(320,240,-99);
+        glColor3f(R,G,B);
+        glVertex3f(0,240,-99);
+    glEnd();
+    glColor3f(1.0,1.0,1.0);
+    glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D,TilesetTexture);
 	for(int i=0; i<Size.y; ++i){
 		for(int j=0; j<Size.x; ++j){
 			if(Tileset[i][j]!=0){
-				vec2i Pos(j*16,i*16);
+				vec2f Pos(j*16,i*16);
+				Pos-=CameraLocation;
 				vec2f TPos;
 				TPos.x=Tileset[i][j]%TilesetWidth;
 				TPos.y=Tileset[i][j]/TilesetWidth;

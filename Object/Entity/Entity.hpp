@@ -20,7 +20,8 @@ class Entity : public Object
 		virtual void Tick();
 		virtual void Draw();
 		virtual void WireDraw();
-		void PlayAnim(const std::string &S);
+		virtual void UpdateAnim();
+		virtual void PlayAnim(const std::string &S);
 
     protected :
         vec2f Location;
@@ -36,6 +37,9 @@ class Entity : public Object
         Sprite Spr;
         AnimPack Anims;
         Anim *CurrentAnim;
+        std::string CurrentAnimName;
         float FrameIndex;
         int Direction;
+        vec2i SpriteOffset;
+        vec2i GridLocationExt;
 };

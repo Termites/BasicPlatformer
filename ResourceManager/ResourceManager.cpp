@@ -116,5 +116,6 @@ void ResourceManager::DrawSprite(Sprite &S, const vec2f &Location, int FrameInde
         glTexCoord2f(x1,y2);
         glVertex3f(Location.x,Location.y+(S.FrameHeight*fabs(Scale.y)),1);
     glEnd();
+    glBindTexture(GL_TEXTURE_2D,0);
     glDisable(GL_TEXTURE_2D);
 }
