@@ -13,6 +13,18 @@ enum PhysicState
     PHYS_Falling
 };
 
+inline std::string Str(PhysicState S)
+{
+    if (S==PHYS_Landed)
+        return "PHYS_Landed";
+    else if (S == PHYS_Jumping)
+        return "PHYS_Jumping";
+    else if (S == PHYS_Falling)
+        return "PHYS_Falling";
+    else
+        return "PHYS_Unknow";
+}
+
 class EntityBase : public Object
 {
 	protected :

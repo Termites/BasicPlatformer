@@ -13,6 +13,10 @@ class Player : public EntityBase
         sf::SoundBuffer JumpSound;
         sf::SoundBuffer LandSound;
 
+        sf::SoundBuffer BrickDestroyed;
+        float AirControl;
+        float Accel;
+
 	public:
 		Player(const vec2f&L);
 
@@ -22,4 +26,5 @@ class Player : public EntityBase
 		virtual ~Player() {}
 
 		virtual void Land();
+		virtual void HitAbove();
 };

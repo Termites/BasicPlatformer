@@ -37,8 +37,10 @@ void EntityBase::Create()
 void EntityBase::Tick()
 {
     Velocity+=Acceleration;
+
     if (Physic == PHYS_Falling)
         Velocity.y+=Gravity;
+
 
     if (fabs(Velocity.x)>MaxSpeed.x)
         Velocity.x = sign(Velocity.x) * MaxSpeed.x;
@@ -49,11 +51,12 @@ void EntityBase::Tick()
 	GridLocation = Location+Velocity;
 	GridLocation/=16;
 	GridLocationExt = SnapToGrid(Location + Velocity);
-	GridLocationExt.y-=1;
+	GridLocationExt.x = GridLocation.x;
+	GridLocationExt.y--;
 
-	if (Physic ==PHYS_Falling && Velocity.y > 0)
+	if (Physic != PHYS_Landed && Velocity.y >= 0)
 	{
-		if (Level->GetBlockAt(GridLocation) >0  && Location.y + Velocity.y > GridLocation.y * 16 )
+		if (Level->GetBlockAt(GridLocation).bSolid  && Location.y + Velocity.y >= GridLocation.y * 16 )
 		{
 			Velocity.y = 0;
 			Location.y = GridLocation.y*16;
@@ -64,7 +67,7 @@ void EntityBase::Tick()
 
 	if (Physic != PHYS_Landed && Velocity.y<0)
 	{
-	    if (Level->GetBlockAt(vec2i(GridLocation.x,GridLocation.y) + vec2i(0,-1)) >0)
+	    if (Level->GetBlockAt(GridLocation + vec2i(0,-1)).bSolid)
 	    {
 	        Physic = PHYS_Falling;
 	        Velocity.y=0;
@@ -73,7 +76,7 @@ void EntityBase::Tick()
 	    }
 	}
 
-	if (Physic == PHYS_Landed && (Level->GetBlockAt(GridLocation)<=0) && Location.x>GridLocation.x*16 && Location.x<GridLocation.x*16+16)
+	if (Physic == PHYS_Landed && (!Level->GetBlockAt(GridLocation).bSolid) && Location.x>GridLocation.x*16 && Location.x<GridLocation.x*16+16)
 	{
 	    Physic = PHYS_Falling;
 	    Fall();
@@ -85,13 +88,13 @@ void EntityBase::Tick()
 
 		for (int i=0;i<Height;i++)
 		{
-			if (Level->GetBlockAt(vec2i(GridLocation.x,GridLocationExt.y) + vec2i(S,-i)) > 0)
+			if (Level->GetBlockAt(GridLocationExt + vec2i(S,-i)).bSolid)
 			{
-			    if ( (S>=0 && Location.x + Velocity.x >=GridLocation.x*16+8) ||
-                     (S<0 && Location.x + Velocity.x <= GridLocation.x*16 +8) )
+			    if ( (S>=0 && Location.x + Velocity.x >=GridLocationExt.x*16+8) ||
+                     (S<0 && Location.x + Velocity.x <= GridLocationExt.x*16 +8) )
                 {
                     Velocity.x=0;
-                    Location.x = GridLocation.x*16+8;
+                    Location.x = GridLocationExt.x*16+8;
                     HitWall();
                     break;
                 }

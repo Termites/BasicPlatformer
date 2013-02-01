@@ -87,11 +87,8 @@ int main(int arg_c,char*argv[])
 	LevelManager L;
 
 
-
+    L.LoadTileset("mTileset");
     L.LoadLevel("Level");
-	L.LoadTileset("mTileset");
-
-
 
 	L.RegisterObject(new Player(vec2f(0,0)));
 

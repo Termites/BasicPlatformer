@@ -6,8 +6,6 @@
 #include "Resources/GamePath.hpp"
 #include "Resources/ResourceManager.hpp"
 
-
-
 LevelManager::LevelManager()
 {
 	Tileset=NULL;
@@ -24,25 +22,35 @@ LevelManager::~LevelManager()
 
 		delete [] Tileset;
 	}
+
+    if (TilesetTemplate)
+	{
+		for (int i=0;i<TilesetHeight;++i)
+		{
+			delete [] Tileset[i];
+		}
+
+		delete [] Tileset;
+	}
 }
 
-char LevelManager::GetBlockAt(const vec2i& Location)
+const Tile& LevelManager::GetBlockAt(const vec2i& Location) const
 {
 
 	// Au cas où on cherche à accéder à un bloc inexistant :
 	if (Location.x < 0 || Location.y <0 || Location.x>=Size.x || Location.y>=Size.y)
-		return -1;
+		return FallBack;
 
 	return Tileset[Location.y][Location.x];
 }
 
-void LevelManager::SetBlockAt(const vec2i& Location, char B)
+void LevelManager::SetBlockAt(const vec2i& Location, const Tile&T)
 {
 		// Au cas où on cherche à accéder à un bloc inexistant :
 	if (Location.x < 0 || Location.y <0 || Location.x>=Size.x || Location.y>=Size.y)
 		return;
 
-	Tileset[Location.y][Location.x] = B;
+	Tileset[Location.y][Location.x] = T;
 }
 
 void LevelManager::LoadTileset(const std::string& File)
@@ -59,7 +67,18 @@ void LevelManager::LoadTileset(const std::string& File)
 	TilesetTexture = ConvertToGLTexture(I);
 	TilesetWidth = I.GetWidth()/16;
 	TilesetHeight = I.GetHeight()/16;
+	TilesetTemplate = new bool[TilesetHeight*TilesetHeight];
 
+
+    std::string mFile = GamePath::Tileset + File + ".info";
+    std::ifstream Input(mFile);
+    char Sep;
+	for (int i=0;i<TilesetHeight*TilesetHeight;++i)
+	{
+            Input>>TilesetTemplate[i]>>Sep;
+	}
+
+    Input.close();
 }
 
 void LevelManager::LoadLevel(const std::string&File)
@@ -87,15 +106,16 @@ void LevelManager::LoadLevel(const std::string&File)
 
 	Input>>Size.x>>Sep>>Size.y;
 
-	Tileset = new char*[Size.y];
+	Tileset = new Tile*[Size.y];
 	for (int i=0;i<Size.y;++i)
 	{
-		Tileset[i] = new char[Size.x];
+		Tileset[i] = new Tile[Size.x];
 		for (int j=0;j<Size.x;++j)
 		{
 		    int id;
 			Input>>id>>Sep;
-			Tileset[i][j] = id;
+			Tileset[i][j].BlockID = id;
+			Tileset[i][j].bSolid = TilesetTemplate[id];
 		}
 	}
 
@@ -145,14 +165,18 @@ void LevelManager::Draw()
 	{
 		for (int j=0;j<Size.x;++j)
 		{
-			if (Tileset[i][j]!=0)
+			if (Tileset[i][j].BlockID!=0)
 			{
+			    if (!Tileset[i][j].bSolid)
+                    glColor3f(0,0,0);
+                else
+                    glColor3f(1,1,1);
 				vec2f Pos(j*16,i*16);
                 Pos-=CameraLocation;
 				vec2f TPos;
 				// Recalcule les coordonnées dans le tileset :
-				TPos.x = Tileset[i][j]%TilesetWidth;
-				TPos.y = Tileset[i][j]/TilesetWidth;
+				TPos.x = Tileset[i][j].BlockID%TilesetWidth;
+				TPos.y = Tileset[i][j].BlockID/TilesetWidth;
 
 				// Afin d'avoir x & y qui sont compris entre 0 et 1 :
 				TPos.x /= float(TilesetWidth);
@@ -179,7 +203,7 @@ void LevelManager::Draw()
 			}
 		}
 	}
-
+    glColor3f(1,1,1);
 	glBindTexture(GL_TEXTURE_2D,0);
 	glDisable(GL_TEXTURE_2D);
 
