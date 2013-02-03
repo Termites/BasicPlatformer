@@ -1,6 +1,7 @@
 #pragma once
+#include <GL/GLEW.h>
 #include "Math.hpp"
-#include <GL/GL.h>
+
 #include <string>
 
 #include "ObjectManager.hpp"
@@ -67,11 +68,11 @@ class LevelManager
 		    ObjectController.RegisterObject(O);
 		}
 
-		// Supprimer un object de la carte :
+		/*// Supprimer un object de la carte :
 		void DeleteObject(Object*O)
 		{
 		    ObjectController.DeleteObject(O);
-		}
+		}*/
 
 		vec2f& GetCameraLocation()  {return CameraLocation;}
 };

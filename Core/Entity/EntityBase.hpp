@@ -58,6 +58,8 @@ class EntityBase : public Object
 
 		float FrameIndex;
 
+		bool bEnableLevelCollision;
+
 
 
 	public:
@@ -74,5 +76,6 @@ class EntityBase : public Object
 		virtual void Land() {}
 		virtual void HitWall() {}
 		virtual void HitAbove() {}
+		virtual void AnimationEnded() {}
 
 };

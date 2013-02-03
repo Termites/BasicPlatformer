@@ -1,40 +1,79 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="Core\Entity\EntityBase.cpp" open="1" top="0" tabpos="12">
-		<Cursor position="393" topLine="22" />
+	<File name="Core\Entity\EntityBase.cpp" open="1" top="0" tabpos="8">
+		<Cursor position="521" topLine="34" />
 	</File>
-	<File name="Core\Entity\Player.cpp" open="1" top="0" tabpos="14">
+	<File name="Core\Entity\EntityBase.hpp" open="1" top="0" tabpos="16">
+		<Cursor position="772" topLine="0" />
+	</File>
+	<File name="Core\Entity\Player.cpp" open="1" top="0" tabpos="11">
+		<Cursor position="477" topLine="0" />
+	</File>
+	<File name="Core\Entity\Player.hpp" open="1" top="0" tabpos="17">
+		<Cursor position="219" topLine="0" />
+	</File>
+	<File name="Core\Entity\TileEntity.cpp" open="1" top="0" tabpos="13">
+		<Cursor position="575" topLine="3" />
+	</File>
+	<File name="Core\Entity\TileEntity.hpp" open="1" top="0" tabpos="18">
+		<Cursor position="92" topLine="0" />
+	</File>
+	<File name="Core\Entity\Tile\BrickBlock.cpp" open="1" top="0" tabpos="25">
+		<Cursor position="800" topLine="5" />
+	</File>
+	<File name="Core\Entity\Tile\BrickBlock.hpp" open="1" top="0" tabpos="24">
+		<Cursor position="108" topLine="0" />
+	</File>
+	<File name="Core\Entity\Tile\MystBlock.cpp" open="1" top="0" tabpos="14">
+		<Cursor position="620" topLine="0" />
+	</File>
+	<File name="Core\Entity\Tile\MystBlock.hpp" open="1" top="0" tabpos="15">
+		<Cursor position="143" topLine="0" />
+	</File>
+	<File name="Core\FrameBuffer.cpp" open="1" top="0" tabpos="22">
+		<Cursor position="1658" topLine="20" />
+	</File>
+	<File name="Core\FrameBuffer.hpp" open="1" top="0" tabpos="21">
+		<Cursor position="292" topLine="0" />
+	</File>
+	<File name="Core\LevelManager.cpp" open="1" top="0" tabpos="4">
+		<Cursor position="4329" topLine="187" />
+	</File>
+	<File name="Core\LevelManager.hpp" open="1" top="0" tabpos="3">
+		<Cursor position="1520" topLine="50" />
+	</File>
+	<File name="Core\Math.hpp" open="1" top="0" tabpos="2">
+		<Cursor position="2679" topLine="139" />
+	</File>
+	<File name="Core\Object.hpp" open="1" top="0" tabpos="10">
+		<Cursor position="488" topLine="11" />
+	</File>
+	<File name="Core\ObjectManager.cpp" open="1" top="0" tabpos="6">
+		<Cursor position="491" topLine="18" />
+	</File>
+	<File name="Core\ObjectManager.hpp" open="1" top="0" tabpos="12">
+		<Cursor position="542" topLine="14" />
+	</File>
+	<File name="Core\Resources\GamePath.cpp" open="1" top="0" tabpos="5">
+		<Cursor position="66" topLine="0" />
+	</File>
+	<File name="Core\Resources\GamePath.hpp" open="1" top="0" tabpos="19">
 		<Cursor position="0" topLine="0" />
 	</File>
-	<File name="Core\LevelManager.cpp" open="1" top="1" tabpos="7">
-		<Cursor position="1070" topLine="34" />
+	<File name="Core\Resources\ResourceManager.cpp" open="1" top="0" tabpos="9">
+		<Cursor position="1515" topLine="36" />
 	</File>
-	<File name="Core\LevelManager.hpp" open="1" top="0" tabpos="6">
-		<Cursor position="574" topLine="27" />
+	<File name="Core\Resources\ResourceManager.hpp" open="1" top="0" tabpos="7">
+		<Cursor position="253" topLine="0" />
 	</File>
-	<File name="Core\Math.hpp" open="1" top="0" tabpos="5">
-		<Cursor position="2712" topLine="139" />
+	<File name="Core\SoundManager.cpp" open="1" top="0" tabpos="20">
+		<Cursor position="338" topLine="0" />
 	</File>
-	<File name="Core\Object.hpp" open="1" top="0" tabpos="13">
-		<Cursor position="97" topLine="0" />
+	<File name="Core\SoundManager.hpp" open="1" top="0" tabpos="23">
+		<Cursor position="66" topLine="0" />
 	</File>
-	<File name="Core\ObjectManager.cpp" open="1" top="0" tabpos="9">
-		<Cursor position="106" topLine="0" />
-	</File>
-	<File name="Core\ObjectManager.hpp" open="1" top="0" tabpos="15">
-		<Cursor position="234" topLine="9" />
-	</File>
-	<File name="Core\Resources\GamePath.cpp" open="1" top="0" tabpos="8">
-		<Cursor position="404" topLine="3" />
-	</File>
-	<File name="Core\Resources\ResourceManager.cpp" open="1" top="0" tabpos="11">
-		<Cursor position="736" topLine="5" />
-	</File>
-	<File name="Core\Resources\ResourceManager.hpp" open="1" top="0" tabpos="10">
-		<Cursor position="320" topLine="1" />
-	</File>
-	<File name="Main.cpp" open="1" top="0" tabpos="4">
-		<Cursor position="1778" topLine="81" />
+	<File name="Main.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="5877" topLine="239" />
 	</File>
 </CodeBlocks_layout_file>

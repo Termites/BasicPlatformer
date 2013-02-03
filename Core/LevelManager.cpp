@@ -1,6 +1,7 @@
+#include<GL/GLEW.h>
 #include "LevelManager.hpp"
 #include<SFML/Graphics.hpp>
-#include<GL/GL.h>
+//
 #include<fstream>
 #include<iostream>
 #include "Resources/GamePath.hpp"

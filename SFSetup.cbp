@@ -14,12 +14,14 @@
 				<Compiler>
 					<Add option="-std=c++0x" />
 					<Add option="-g" />
+					<Add option="-DGLEW_STATIC" />
 				</Compiler>
 				<Linker>
 					<Add option="-lsfml-graphics-s" />
 					<Add option="-lsfml-window-s" />
 					<Add option="-lsfml-audio-s" />
 					<Add option="-lsfml-system-s" />
+					<Add option="-lglew32s" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -42,6 +44,14 @@
 		<Unit filename="Core\Entity\EntityBase.hpp" />
 		<Unit filename="Core\Entity\Player.cpp" />
 		<Unit filename="Core\Entity\Player.hpp" />
+		<Unit filename="Core\Entity\TileEntity.cpp" />
+		<Unit filename="Core\Entity\TileEntity.hpp" />
+		<Unit filename="Core\Entity\Tile\BrickBlock.cpp" />
+		<Unit filename="Core\Entity\Tile\BrickBlock.hpp" />
+		<Unit filename="Core\Entity\Tile\MystBlock.cpp" />
+		<Unit filename="Core\Entity\Tile\MystBlock.hpp" />
+		<Unit filename="Core\FrameBuffer.cpp" />
+		<Unit filename="Core\FrameBuffer.hpp" />
 		<Unit filename="Core\LevelManager.cpp" />
 		<Unit filename="Core\LevelManager.hpp" />
 		<Unit filename="Core\Math.hpp" />
@@ -52,6 +62,8 @@
 		<Unit filename="Core\Resources\GamePath.hpp" />
 		<Unit filename="Core\Resources\ResourceManager.cpp" />
 		<Unit filename="Core\Resources\ResourceManager.hpp" />
+		<Unit filename="Core\SoundManager.cpp" />
+		<Unit filename="Core\SoundManager.hpp" />
 		<Unit filename="Main.cpp" />
 		<Extensions>
 			<code_completion />

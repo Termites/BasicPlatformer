@@ -1,11 +1,14 @@
+#pragma once
 #include "EntityBase.hpp"
 //class LevelManager;
 #include "../LevelManager.hpp"
+#include <SFML/Audio.hpp>
 
 class TileEntity : public EntityBase
 {
 	protected:
 		vec2i TileLocation;
+
 
 	public:
 		TileEntity(const vec2i&Location);

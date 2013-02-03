@@ -17,12 +17,6 @@ void ObjectManager::RegisterObject(Object* NewObj)
 	CurrentObjectList.push_back(NewObj);
 }
 
-void ObjectManager::DeleteObject(Object* Obj)
-{
-	ObjectsToDelete.push_back(Obj);
-}
-
-
 void ObjectManager::Create()
 {
 	for (auto it = CurrentObjectList.begin();it!=CurrentObjectList.end();++it)
@@ -35,19 +29,23 @@ void ObjectManager::Create()
 void ObjectManager::Tick()
 {
 
-	while (ObjectsToDelete.size()>0)
+    while (ObjectsToDelete.size()>0)
 	{
 		Object * O = ObjectsToDelete.front();
 		CurrentObjectList.remove(O);
-		delete O;
 		ObjectsToDelete.pop_front();
+		delete O;
 	}
 
 	for (auto it = CurrentObjectList.begin();it!=CurrentObjectList.end();++it)
 	{
 		Object * O = *it;
 		O->Tick();
+		if (O->bShouldBeDestroyed())
+            ObjectsToDelete.push_back(O);
 	}
+
+
 }
 
 void ObjectManager::TileChanged(const vec2i&Location,const Tile&T)

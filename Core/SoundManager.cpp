@@ -12,15 +12,16 @@ void SoundManager::Tick()
 			S.Playing=false;
 	}
 
-	if (SoundList.size()>0)
+	/*if (SoundList.size()>0)
 	{
 		Sound S = SoundList.back();
 		while (S.Playing==false && SoundList.size()>0)
 		{
+		    S.Source.Stop();
 			SoundList.pop_back();
 			S = SoundList.back();
 		}
-	}
+	}*/
 }
 
 Sound& SoundManager::PlaySound(const sf::SoundBuffer & Buffer,bool Loop)

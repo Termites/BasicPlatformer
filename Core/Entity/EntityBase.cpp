@@ -1,11 +1,12 @@
 #include "EntityBase.hpp"
+
 #include "../LevelManager.hpp"
-#include <GL/GL.h>
+
 #include<iostream>
 #define debug(a) std::cout<<a<<std::endl
 
 extern ResourceManager R;
-EntityBase::EntityBase()
+EntityBase::EntityBase(): Object()
 {
 	Gravity=0.7;
 	Layer=0;
@@ -15,9 +16,10 @@ EntityBase::EntityBase()
 	CurrentAnimation=NULL;
 	FrameIndex=0;
 	Direction=1;
+	bEnableLevelCollision=true;
 }
 
-EntityBase::EntityBase(const vec2f&Location)
+EntityBase::EntityBase(const vec2f&Location) : Object()
 {
 	this->Location = Location;
 	Gravity=0.7;
@@ -28,6 +30,7 @@ EntityBase::EntityBase(const vec2f&Location)
 	CurrentAnimation=NULL;
 	FrameIndex=0;
 	Direction=1;
+	bEnableLevelCollision=true;
 }
 
 
@@ -54,7 +57,7 @@ void EntityBase::Tick()
 	GridLocationExt.x = GridLocation.x;
 	GridLocationExt.y--;
 
-	if (Physic != PHYS_Landed && Velocity.y >= 0)
+	if (bEnableLevelCollision && Physic != PHYS_Landed && Velocity.y >= 0)
 	{
 		if (Level->GetBlockAt(GridLocation).bSolid  && Location.y + Velocity.y >= GridLocation.y * 16 )
 		{
@@ -65,7 +68,7 @@ void EntityBase::Tick()
 		}
 	}
 
-	if (Physic != PHYS_Landed && Velocity.y<0)
+	if (bEnableLevelCollision && Physic != PHYS_Landed && Velocity.y<0)
 	{
 	    if (Level->GetBlockAt(GridLocation + vec2i(0,-1)).bSolid)
 	    {
@@ -76,13 +79,13 @@ void EntityBase::Tick()
 	    }
 	}
 
-	if (Physic == PHYS_Landed && (!Level->GetBlockAt(GridLocation).bSolid) && Location.x>GridLocation.x*16 && Location.x<GridLocation.x*16+16)
+	if (bEnableLevelCollision && Physic == PHYS_Landed && (!Level->GetBlockAt(GridLocation).bSolid) && Location.x>GridLocation.x*16 && Location.x<GridLocation.x*16+16)
 	{
 	    Physic = PHYS_Falling;
 	    Fall();
 	}
 
-	if (Velocity.x != 0)
+	if (bEnableLevelCollision && Velocity.x != 0)
 	{
 		int S = Velocity.x<0 ? -1 : 1;
 
@@ -114,7 +117,11 @@ void EntityBase::UpdateAnimation()
     {
             FrameIndex+=CurrentAnimation->Ratescale;
             if (int(FrameIndex) >= CurrentAnimation->FramesCount)
+            {
+                AnimationEnded();
                 FrameIndex = 0;
+
+            }
     }
 }
 void EntityBase::PlayAnimation(const std::string&Anim)

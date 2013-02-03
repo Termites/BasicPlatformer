@@ -52,7 +52,7 @@ sf::SoundBuffer & ResourceManager::LoadSound(const std::string&Snd)
 
 			Resource<sf::SoundBuffer> &R = SoundList.back();
 			R.Name = LowerName;
-			R.Value.LoadFromFile(GamePath::Sound+Snd+".wav");
+			std::cout<<" ?? "<<Snd<<R.Value.LoadFromFile(GamePath::Sound+Snd+".wav")<<std::endl;
 
 			return R.Value;
 }
@@ -140,6 +140,7 @@ void ResourceManager::DrawSprite(const Sprite & Spr,int FrameIndex, const vec2f&
 
 AnimationSet & ResourceManager::LoadAnimationSet(const std::string&PackageName)
 {
+
  			std::string LowerName;
 			LowerName.resize(PackageName.size());
 			std::transform(PackageName.begin(),PackageName.end(),LowerName.begin(),Lower);
@@ -152,7 +153,6 @@ AnimationSet & ResourceManager::LoadAnimationSet(const std::string&PackageName)
 				if (R.Name == LowerName)
 					return R.Value;
 			}
-
             AnimationList.resize(AnimationList.size()+1);
 
             Resource<AnimationSet> & R = AnimationList.back();
@@ -170,8 +170,6 @@ AnimationSet & ResourceManager::LoadAnimationSet(const std::string&PackageName)
                     if (L.size()>0)
                     {
                         // L = nom de l'animation :
-
-
                         L.erase(L.begin());
                         L.erase(L.end()-1);
                         debug("["<<L<<"]");
@@ -185,9 +183,7 @@ AnimationSet & ResourceManager::LoadAnimationSet(const std::string&PackageName)
                         {
                             int k;
                             Input>>k>>Sep;
-
                             NewAnim.FrameKeys[i]=k;
-
                         }
 
                         Input>>NewAnim.Ratescale;

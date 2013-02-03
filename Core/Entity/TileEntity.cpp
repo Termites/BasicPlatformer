@@ -1,6 +1,9 @@
 #include "TileEntity.hpp"
 #include "../LevelManager.hpp"
 #include<iostream>
+#include "../SoundManager.hpp"
+
+
 TileEntity::TileEntity(const vec2i&Location) : EntityBase(vec2i())
 {
 
@@ -20,7 +23,9 @@ void TileEntity::Create()
 void TileEntity::TileChanged(const vec2i&Location,const Tile&NewTile)
 {
 	if (Location == TileLocation && NewTile.bSolid==false && NewTile.BlockID!=15)
+	{
 		OnTileChangement(NewTile);
+	}
 }
 
 

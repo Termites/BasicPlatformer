@@ -1,10 +1,11 @@
 #pragma once
+#include <GL/GLEW.h>
 #include<SFML/Audio.hpp>
 #include <String>
 #include <List>
 #include <Map>
 #include <SFML/Graphics.hpp>
-#include <GL/GL.h>
+
 #include "../Math.hpp"
 
 template<typename T>
@@ -19,10 +20,7 @@ struct Animation
   int FramesCount;
   int * FrameKeys;
   float Ratescale;
-  ~Animation()
-  {
-      delete [] FrameKeys;
-  }
+
 };
 
 struct Sprite

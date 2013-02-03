@@ -1,19 +1,20 @@
-#include <SFML/Window.hpp>
 #include "Player.hpp"
 #include "../LevelManager.hpp"
 #include "../SoundManager.hpp"
+#include <SFML/Window.hpp>
+
 extern const sf::Input * GlobalInput;
 extern ResourceManager R;
 extern SoundManager SM;
 Player::Player(const vec2f & Location) : EntityBase(Location)
 {
-    CurrentSprite = R.LoadSprite("Rario",vec2i(17,17),vec2i(0,0));
+    CurrentSprite = R.LoadSprite("fario",vec2i(17,17),vec2i(0,0));
     AnimationList = R.LoadAnimationSet("Fario");
     PlayAnimation("idle");
     SpriteOffset=vec2i(8,17);
-    JumpSound = R.LoadSound("FarioJumpB");
+    JumpSound = R.LoadSound("MarioJump");
     LandSound = R.LoadSound("FarioLandB");
-    BrickDestroyed = R.LoadSound("BrickDestroyed");
+    //BrickDestroyed = R.LoadSound("BrickDestroyed");
     AirControl = 0.4;
     Accel = 0.25;
     Height=1;
@@ -26,7 +27,6 @@ void Player::HitAbove()
     if (B.BlockID == 15)
     {
         Level->SetBlockAt(GridLocationExt-vec2i(0,1),Tile(0,false));
-        SM.PlaySound(BrickDestroyed);
     }
 }
 

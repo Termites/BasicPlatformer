@@ -30,7 +30,7 @@ class ObjectManager
 		void RegisterObject(Object* NewObj);
 
 		//@param Obj : Objet à supprimer
-		void DeleteObject(Object* Obj);
+		//void DeleteObject(Object* Obj);
 
 		// Créer tous les objets
 		void Create();
