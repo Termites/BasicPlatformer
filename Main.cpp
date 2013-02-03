@@ -181,7 +181,11 @@ int main(int arg_c,char*argv[])
 	// On tourne à 60FPS
 	App.SetFramerateLimit(60);
 
-	GamePath::Root = "D:\\Development\\GithubShared\\BasicPlatformer\\Public\\";
+    std::string mPath = argv[0];
+
+    mPath.resize(mPath.size() - std::string("Binaries\\Fario.exe").size());
+    std::cout<<mPath<<std::endl;
+	GamePath::Root = mPath;//"D:\\Development\\GithubShared\\BasicPlatformer\\Public\\";
 	GamePath::GeneratePath();
 
 	GlobalInput = &App.GetInput();

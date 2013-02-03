@@ -47,7 +47,7 @@
 1359483941 d:\development\shared\sfsetup\core\entity\player.hpp
 	"EntityBase.hpp"
 
-1359892873 source:d:\development\githubshared\basicplatformer\main.cpp
+1359893287 source:d:\development\githubshared\basicplatformer\main.cpp
 	<GL/GLEW.h>
 	<SFML/Window.hpp>
 	"Core/Math.hpp"
@@ -87,7 +87,7 @@
 	"../Resources/ResourceManager.hpp"
 	<SFML/Audio.hpp>
 
-1359892863 source:d:\development\githubshared\basicplatformer\core\levelmanager.cpp
+1359893151 source:d:\development\githubshared\basicplatformer\core\levelmanager.cpp
 	<GL/GLEW.h>
 	"LevelManager.hpp"
 	<SFML/Graphics.hpp>

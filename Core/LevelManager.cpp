@@ -78,7 +78,7 @@ void LevelManager::LoadTileset(const std::string& File)
 
 
     std::string mFile = GamePath::Tileset + File + ".info";
-    std::ifstream Input(mFile);
+    std::ifstream Input(mFile.c_str());
     if (!Input.is_open())
     {
 
