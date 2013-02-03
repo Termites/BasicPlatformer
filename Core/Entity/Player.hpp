@@ -10,10 +10,10 @@ class Player : public EntityBase
         int CamTimer;
         int CamXOffset;
 
-        sf::SoundBuffer JumpSound;
-        sf::SoundBuffer LandSound;
+        sf::SoundBuffer *JumpSound;
+        sf::SoundBuffer *LandSound;
 
-        sf::SoundBuffer BrickDestroyed;
+        sf::SoundBuffer *BrickDestroyed;
         float AirControl;
         float Accel;
 

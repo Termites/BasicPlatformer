@@ -4,16 +4,16 @@
 #include <SFML/Window.hpp>
 
 extern const sf::Input * GlobalInput;
-extern ResourceManager R;
+extern ResourceManager *R;
 extern SoundManager SM;
 Player::Player(const vec2f & Location) : EntityBase(Location)
 {
-    CurrentSprite = R.LoadSprite("fario",vec2i(17,17),vec2i(0,0));
-    AnimationList = R.LoadAnimationSet("Fario");
+    CurrentSprite = R->LoadSprite("fario",vec2i(17,17),vec2i(0,0));
+    AnimationList = R->LoadAnimationSet("Fario");
     PlayAnimation("idle");
     SpriteOffset=vec2i(8,17);
-    JumpSound = R.LoadSound("MarioJump");
-    LandSound = R.LoadSound("FarioLandB");
+    JumpSound = R->LoadSound("MarioJump");
+    LandSound = R->LoadSound("FarioLandB");
     //BrickDestroyed = R.LoadSound("BrickDestroyed");
     AirControl = 0.4;
     Accel = 0.25;
@@ -72,7 +72,7 @@ void Player::Tick()
     	Velocity.y = -8;
         PlayAnimation("jump");
         MaxJumpHeight = Location.y - 60;
-        SM.PlaySound(JumpSound);
+        SM.PlaySound(*JumpSound);
 
     }
 
@@ -111,5 +111,5 @@ void Player::Tick()
 
  void Player::Land()
 {
-    SM.PlaySound(LandSound);
+    SM.PlaySound(*LandSound);
 }

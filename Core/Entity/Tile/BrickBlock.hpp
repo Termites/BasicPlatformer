@@ -12,7 +12,7 @@ class BrickChunk : public EntityBase
 class BrickBlock : public TileEntity
 {
 	protected:
-		 sf::SoundBuffer HitSound;
+		 sf::SoundBuffer *HitSound;
 	public:
 
 		BrickBlock(const vec2i&);

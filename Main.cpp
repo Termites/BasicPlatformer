@@ -31,7 +31,7 @@
 		-lsfml-system-s
 */
 
- ResourceManager R;
+ ResourceManager *R;
  SoundManager SM;
 const sf::Input * GlobalInput;
 
@@ -174,6 +174,7 @@ Shader LoadShader(const std::string&VertFile,const std::string&FragFile)
 
 int main(int arg_c,char*argv[])
 {
+
 	// Constructeur :
 	//Window (sf::VideoMode Mode, const std::string &Title,...)
 	sf::Window App(sf::VideoMode(800,600,32),"FARIO");
@@ -186,6 +187,7 @@ int main(int arg_c,char*argv[])
 	GlobalInput = &App.GetInput();
 
 	InitializeGL(800,600);
+	R = new ResourceManager;
 
 	LevelManager L;
 
@@ -200,9 +202,14 @@ int main(int arg_c,char*argv[])
 
 	L.Create();
 
-	//Shader S = LoadShader("VertexShader.shad","FragmentShader.shad");
+	Shader S = LoadShader("VertexShader.shad","FragmentShader.shad");
 
     FrameBuffer F(512,512);
+
+    sf::Music M;
+    M.OpenFromFile("FarioTheme.ogg");
+    M.SetLoop(true);
+    M.Play();
 
 	while (App.IsOpened())
 	{
@@ -230,7 +237,7 @@ int main(int arg_c,char*argv[])
 		L.Tick();
 		SM.Tick();
 
-        //glUseProgram(S.Prog);
+        glUseProgram(S.Prog);
 
         //F.Bind();
 		// On redessine toute la scène :
@@ -241,14 +248,13 @@ int main(int arg_c,char*argv[])
 		glEnable(GL_TEXTURE_2D);
         glEnable(GL_ALPHA_TEST);
         glEnable(GL_DEPTH_TEST);
-        glEnable(GL_BLEND);
         glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
 		glAlphaFunc(GL_GREATER,0.1);
 		glDepthFunc(GL_LESS);
 
 
 		L.Draw();
-       // glUseProgram(0);
+        glUseProgram(0);
 
 		glDisable(GL_TEXTURE_2D);
 		glDisable(GL_ALPHA_TEST);

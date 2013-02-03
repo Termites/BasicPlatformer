@@ -8,6 +8,8 @@
 #include "Resources/ResourceManager.hpp"
 #include "Debugger.hpp"
 
+extern ResourceManager * R;
+
 LevelManager::LevelManager()
 {
 	Tileset=NULL;
@@ -155,26 +157,31 @@ void LevelManager::Tick()
 void LevelManager::Draw()
 {
 
+
     glBegin(GL_QUADS);
-        glColor3fv(SkyColor);
+
+        glColor3f(SkyColor[0],SkyColor[1],SkyColor[2]);
         glVertex3f(0,0,-99);
         glVertex3f(320,0,-99);
-        glColor3fv(SkyColor+3);
+        glColor3f(SkyColor[3],SkyColor[4],SkyColor[5]);
         glVertex3f(320,240,-99);
         glVertex3f(0,240,-99);
     glEnd();
 
+
+
     glColor3f(1,1,1);
 
 
-	glEnable(GL_TEXTURE_2D);
+	//glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D,TilesetTexture);
+
 
 	for (int i=0;i<Size.y;++i)
 	{
 		for (int j=0;j<Size.x;++j)
 		{
-			if (Tileset[i][j].BlockID!=0)
+			if (Tileset[i][j].BlockID!=0 &&Tileset[i][j].BlockID!=15)
 			{
 
 				vec2f Pos(j*16,i*16);
@@ -190,8 +197,6 @@ void LevelManager::Draw()
 
 				float w = 1.f/TilesetWidth;
 				float h = 1.f/TilesetHeight;
-
-
 
 				glBegin(GL_QUADS);
 					glTexCoord2f(TPos.x,TPos.y);
@@ -209,9 +214,9 @@ void LevelManager::Draw()
 			}
 		}
 	}
-    glColor3f(1,1,1);
-	glBindTexture(GL_TEXTURE_2D,0);
-	glDisable(GL_TEXTURE_2D);
+	R->BindEmptyTexture();
+	//glDisable(GL_TEXTURE_2D);
 
 	ObjectController.Draw();
+
 }

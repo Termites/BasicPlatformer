@@ -6,7 +6,7 @@ class MysteriousBlock : public TileEntity
 	protected:
 		bool Activated;
 		bool Animated;
-        sf::SoundBuffer HitSound;
+        sf::SoundBuffer *HitSound;
 	public:
 		MysteriousBlock(const vec2i&Loc);
 

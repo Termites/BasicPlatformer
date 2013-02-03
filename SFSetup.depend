@@ -47,7 +47,7 @@
 1359483941 d:\development\shared\sfsetup\core\entity\player.hpp
 	"EntityBase.hpp"
 
-1359810690 source:d:\development\githubshared\basicplatformer\main.cpp
+1359892873 source:d:\development\githubshared\basicplatformer\main.cpp
 	<GL/GLEW.h>
 	<SFML/Window.hpp>
 	"Core/Math.hpp"
@@ -78,7 +78,7 @@
 1359754709 d:\development\githubshared\basicplatformer\core\object.hpp
 	"Math.hpp"
 
-1359739431 d:\development\githubshared\basicplatformer\core\entity\player.hpp
+1359890387 d:\development\githubshared\basicplatformer\core\entity\player.hpp
 	"EntityBase.hpp"
 
 1359752553 d:\development\githubshared\basicplatformer\core\entity\entitybase.hpp
@@ -87,7 +87,7 @@
 	"../Resources/ResourceManager.hpp"
 	<SFML/Audio.hpp>
 
-1359748648 source:d:\development\githubshared\basicplatformer\core\levelmanager.cpp
+1359892863 source:d:\development\githubshared\basicplatformer\core\levelmanager.cpp
 	<GL/GLEW.h>
 	"LevelManager.hpp"
 	<SFML/Graphics.hpp>
@@ -97,13 +97,13 @@
 	"Resources/ResourceManager.hpp"
 	"Debugger.hpp"
 
-1359822195 source:d:\development\githubshared\basicplatformer\core\entity\player.cpp
+1359892660 source:d:\development\githubshared\basicplatformer\core\entity\player.cpp
 	"Player.hpp"
 	"../LevelManager.hpp"
 	"../SoundManager.hpp"
 	<SFML/Window.hpp>
 
-1359755028 source:d:\development\githubshared\basicplatformer\core\objectmanager.cpp
+1359890329 source:d:\development\githubshared\basicplatformer\core\objectmanager.cpp
 	"ObjectManager.hpp"
 
 1359739431 source:d:\development\githubshared\basicplatformer\core\resources\gamepath.cpp
@@ -112,12 +112,12 @@
 1359739431 d:\development\githubshared\basicplatformer\core\resources\gamepath.hpp
 	<string>
 
-1359754716 source:d:\development\githubshared\basicplatformer\core\entity\entitybase.cpp
+1359892660 source:d:\development\githubshared\basicplatformer\core\entity\entitybase.cpp
 	"EntityBase.hpp"
 	"../LevelManager.hpp"
 	<iostream>
 
-1359755077 d:\development\githubshared\basicplatformer\core\resources\resourcemanager.hpp
+1359891608 d:\development\githubshared\basicplatformer\core\resources\resourcemanager.hpp
 	<GL/GLEW.h>
 	<SFML/Audio.hpp>
 	<String>
@@ -126,7 +126,7 @@
 	<SFML/Graphics.hpp>
 	"../Math.hpp"
 
-1359822121 source:d:\development\githubshared\basicplatformer\core\resources\resourcemanager.cpp
+1359892919 source:d:\development\githubshared\basicplatformer\core\resources\resourcemanager.cpp
 	"ResourceManager.hpp"
 	"GamePath.hpp"
 	<algorithm>
@@ -156,23 +156,23 @@
 	"../LevelManager.hpp"
 	<SFML/Audio.hpp>
 
-1359755271 source:d:\development\githubshared\basicplatformer\core\entity\tile\mystblock.cpp
+1359892774 source:d:\development\githubshared\basicplatformer\core\entity\tile\mystblock.cpp
 	"MystBlock.hpp"
 	"../../SoundManager.hpp"
 
-1359755203 d:\development\githubshared\basicplatformer\core\entity\tile\mystblock.hpp
+1359890424 d:\development\githubshared\basicplatformer\core\entity\tile\mystblock.hpp
 	"../TileEntity.hpp"
 
-1359749087 source:d:\development\githubshared\basicplatformer\core\framebuffer.cpp
+1359891924 source:d:\development\githubshared\basicplatformer\core\framebuffer.cpp
 	"FrameBuffer.hpp"
 
 1359748975 d:\development\githubshared\basicplatformer\core\framebuffer.hpp
 	<GL/GLEW.h>
 
-1359755199 d:\development\githubshared\basicplatformer\core\entity\tile\brickblock.hpp
+1359890408 d:\development\githubshared\basicplatformer\core\entity\tile\brickblock.hpp
 	"../TileEntity.hpp"
 
-1359822149 source:d:\development\githubshared\basicplatformer\core\entity\tile\brickblock.cpp
+1359892722 source:d:\development\githubshared\basicplatformer\core\entity\tile\brickblock.cpp
 	"BrickBlock.hpp"
 	"../../SoundManager.hpp"
 

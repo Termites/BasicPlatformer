@@ -48,14 +48,18 @@ class ResourceManager
 		std::list<Resource<AnimationSet> > AnimationList;
 
 		std::list<Resource<Sprite> > SpriteList;
+        GLuint EmptyTexture;
 
 	public:
-
-		sf::SoundBuffer & LoadSound(const std::string & S);
+        ResourceManager();
+		sf::SoundBuffer * LoadSound(const std::string & S);
 		AnimationSet & LoadAnimationSet(const std::string & S);
 		Sprite & LoadSprite(const std::string&PNGFile,const vec2i &FrameSize,const vec2i&Offset);
 
 		void DrawSprite(const Sprite & S,int FrameIndex,const vec2f & Location,int Layer,const vec2f&Scale);
+
+
+		void BindEmptyTexture();
 
 };
 

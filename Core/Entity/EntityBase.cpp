@@ -5,7 +5,7 @@
 #include<iostream>
 #define debug(a) std::cout<<a<<std::endl
 
-extern ResourceManager R;
+extern ResourceManager * R;
 EntityBase::EntityBase(): Object()
 {
 	Gravity=0.7;
@@ -150,10 +150,10 @@ void EntityBase::Draw()
     if (CurrentAnimation!=NULL)
     {
         int i =FrameIndex;
-        R.DrawSprite(CurrentSprite,CurrentAnimation->FrameKeys[i],Location - vec2f(SpriteOffset) - Level->GetCameraLocation(),Layer,vec2f(Direction,1));
+        R->DrawSprite(CurrentSprite,CurrentAnimation->FrameKeys[i],Location - vec2f(SpriteOffset) - Level->GetCameraLocation(),Layer,vec2f(Direction,1));
     }
 
-    vec2i gLocation = GridLocation * 16 - vec2i(Level->GetCameraLocation());
+    /*vec2i gLocation = GridLocation * 16 - vec2i(Level->GetCameraLocation());
 	glColor3f(1,0,0);
 	glBegin(GL_LINE_LOOP);
         glVertex3f(gLocation.x,gLocation.y,Layer+1);
@@ -170,7 +170,7 @@ void EntityBase::Draw()
 		glVertex3f(gLocation.x+16,gLocation.y,Layer+1);
 		glVertex3f(gLocation.x+16,gLocation.y+16,Layer+1);
 		glVertex3f(gLocation.x,gLocation.y+16,Layer+1);
-	glEnd();
+	glEnd();*/
 
 	/*glBegin(GL_LINES);
 	glVertex3f(Location.x-8,Location.y,2);

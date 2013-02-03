@@ -15,7 +15,7 @@ FrameBuffer::FrameBuffer(int w,int h)
         glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST);
         glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST);
         glTexImage2D(GL_TEXTURE_2D,0,GL_RGBA,w,h,0,GL_RGBA,GL_UNSIGNED_BYTE,NULL);
-        glBindTexture(GL_TEXTURE_2D,0);
+       // glBindTexture(GL_TEXTURE_2D,0);
 
         glGenRenderbuffersEXT(1,&DepthbufferID);
         glBindRenderbufferEXT(GL_RENDERBUFFER_EXT,DepthbufferID);
@@ -28,7 +28,7 @@ FrameBuffer::FrameBuffer(int w,int h)
         glFramebufferRenderbufferEXT(GL_FRAMEBUFFER_EXT, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER_EXT,DepthbufferID);
 
         glBindFramebufferEXT(GL_FRAMEBUFFER_EXT,0);
-        glDisable(GL_TEXTURE_2D);
+        //glDisable(GL_TEXTURE_2D);
 }
 
 void FrameBuffer::Bind()

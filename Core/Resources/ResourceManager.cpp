@@ -6,6 +6,28 @@
 #include<iostream>
 #define debug(a) std::cout<<a<<std::endl
 
+ResourceManager::ResourceManager()
+{
+    glEnable(GL_TEXTURE_2D);
+    glGenTextures(1,&EmptyTexture);
+    glBindTexture(GL_TEXTURE_2D,EmptyTexture);
+    uint32_t t = 0xFFFFFFFF;
+
+    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST);
+
+	glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_S,GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_T,GL_REPEAT);
+
+    glTexImage2D(GL_TEXTURE_2D,0,4,1,1,0,GL_RGBA,GL_UNSIGNED_BYTE,&t);
+}
+
+void ResourceManager::BindEmptyTexture()
+{
+    //debug("Bind "<<EmptyTexture);
+    glBindTexture(GL_TEXTURE_2D,EmptyTexture);
+}
+
 GLuint ConvertToGLTexture(const sf::Image & Image)
 {
 	GLuint TextureID;
@@ -25,13 +47,13 @@ GLuint ConvertToGLTexture(const sf::Image & Image)
 	glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_S,GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_T,GL_REPEAT);
 
-	glBindTexture(GL_TEXTURE_2D,0);
+
 
 	return TextureID;
 
 }
 
-sf::SoundBuffer & ResourceManager::LoadSound(const std::string&Snd)
+sf::SoundBuffer * ResourceManager::LoadSound(const std::string&Snd)
 {
 			std::string LowerName;
 			LowerName.resize(Snd.size());
@@ -44,7 +66,7 @@ sf::SoundBuffer & ResourceManager::LoadSound(const std::string&Snd)
 				Resource<sf::SoundBuffer> & R = *it;
 
 				if (R.Name == LowerName)
-					return R.Value;
+					return &R.Value;
 			}
 
 
@@ -52,9 +74,10 @@ sf::SoundBuffer & ResourceManager::LoadSound(const std::string&Snd)
 
 			Resource<sf::SoundBuffer> &R = SoundList.back();
 			R.Name = LowerName;
-			std::cout<<" ?? "<<Snd<<R.Value.LoadFromFile(GamePath::Sound+Snd+".wav")<<std::endl;
+			R.Value.LoadFromFile(GamePath::Sound+Snd+".wav");
+			//std::cout<<" ?? "<<Snd<<<<std::endl;
 
-			return R.Value;
+			return &R.Value;
 }
 
 Sprite & ResourceManager::LoadSprite(const std::string & PNGFile,const vec2i& FrameSize,const vec2i&Offset)
@@ -92,7 +115,7 @@ Sprite & ResourceManager::LoadSprite(const std::string & PNGFile,const vec2i& Fr
 void ResourceManager::DrawSprite(const Sprite & Spr,int FrameIndex, const vec2f&Location,int Layer,const vec2f&Scale)
 {
 
-    glEnable(GL_TEXTURE_2D);
+   //glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D,Spr.Texture);
     vec2f UV;
     vec2f UVs;
@@ -134,8 +157,9 @@ void ResourceManager::DrawSprite(const Sprite & Spr,int FrameIndex, const vec2f&
     glVertex3f(Location.x,Location.y+ Spr.FrameSize.y * fabs(Scale.y),Layer);
     glEnd();
 
-    glBindTexture(GL_TEXTURE_2D,0);
-    glDisable(GL_TEXTURE_2D);
+    BindEmptyTexture();
+
+    //glDisable(GL_TEXTURE_2D);
 }
 
 AnimationSet & ResourceManager::LoadAnimationSet(const std::string&PackageName)
